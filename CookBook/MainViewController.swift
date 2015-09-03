@@ -13,7 +13,7 @@ class MainViewController: UICollectionViewController {
 
     var recipe = Recipe.allRecipes()
     
-    var blur:UIBlurEffect = UIBlurEffect(style: UIBlurEffectStyle.Light)
+    var blur:UIBlurEffect = UIBlurEffect(style: UIBlurEffectStyle.ExtraLight)
     var effectView:UIVisualEffectView!
     
     var oldFrame : CGRect!
@@ -30,7 +30,7 @@ class MainViewController: UICollectionViewController {
         super.viewDidLoad()
         
         self.effectView = UIVisualEffectView (effect: blur)
-        self.effectView.alpha = 0.8
+        self.effectView.alpha = 0.9
         
         self.backButton = UIBarButtonItem(title: "Close", style: UIBarButtonItemStyle.Plain , target: self, action: Selector("closeAction:"))
         
