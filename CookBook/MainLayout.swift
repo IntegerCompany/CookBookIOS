@@ -43,7 +43,7 @@ class MainLayout : UICollectionViewLayout {
 
     var delegate: PinterestLayoutDelegate!
     
-    var numberOfColumns = 2
+    var numberOfColumns = 4
     var cellPadding: CGFloat = 6.0
     
     private var cache = [PinterestLayoutAttributes]()
@@ -101,7 +101,7 @@ class MainLayout : UICollectionViewLayout {
         return CGSize(width: contentWidth, height: contentHeight)
     }
     
-    override func layoutAttributesForElementsInRect(rect: CGRect) -> [AnyObject]? {
+    override func layoutAttributesForElementsInRect(rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
         
         var layoutAttributes = [UICollectionViewLayoutAttributes]()
         

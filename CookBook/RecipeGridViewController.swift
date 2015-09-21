@@ -9,8 +9,10 @@
 import UIKit
 import AVFoundation
 
-class MainViewController: UICollectionViewController {
-
+class RecipeGridViewController : UICollectionViewController {
+    
+    var searchButton = UIButton(frame: CGRectMake(40,0,30, 30))
+    
     var recipe = Recipe.allRecipes()
     
     var blur:UIBlurEffect = UIBlurEffect(style: UIBlurEffectStyle.ExtraLight)
@@ -29,6 +31,8 @@ class MainViewController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.initNavigationButtons()
+        
         self.effectView = UIVisualEffectView (effect: blur)
         self.effectView.alpha = 0.9
         
@@ -38,7 +42,7 @@ class MainViewController: UICollectionViewController {
             layout.delegate = self
         }
         
-        view.backgroundColor = UIColor.lightGrayColor()
+        view.backgroundColor = UIColor(netHex: 0xe6e6e6)
         
         collectionView!.backgroundColor = UIColor.clearColor()
         collectionView!.contentInset = UIEdgeInsets(top: 23, left: 5, bottom: 10, right: 5)
@@ -51,7 +55,7 @@ class MainViewController: UICollectionViewController {
     }
 }
 
-extension MainViewController : PinterestLayoutDelegate {
+extension RecipeGridViewController : PinterestLayoutDelegate {
     
     func collectionView(collectionView:UICollectionView, heightForPhotoAtIndexPath indexPath:NSIndexPath,
         withWidth width:CGFloat) -> CGFloat {
@@ -73,7 +77,7 @@ extension MainViewController : PinterestLayoutDelegate {
             return height
     }
 }
-extension MainViewController {
+extension RecipeGridViewController {
     
     override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return recipe.count
@@ -99,12 +103,14 @@ extension MainViewController {
             self.effectView.addGestureRecognizer(tap)
             self.effectView.alpha = 0.0
 
-            UIView.animateWithDuration(0.5 , delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: nil, animations: ({
+            UIView.animateWithDuration(0.6 , delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: [], animations: ({
                 
-                let h = self.selectedCell.frame.height * 1.6
-                let w = self.selectedCell.frame.width * 1.75
-                self.selectedCell.recipeImageViewHeight.constant *= 1.6
-                self.selectedCell.frame = CGRect(x: screen.x + 35, y: screen.y + 100, width: w , height: h)
+                let h = self.selectedCell.frame.height * 2.5
+                let w = self.selectedCell.frame.width * 2.5
+                self.selectedCell.recipeImageViewHeight.constant *= 2.5
+                let xPosition = self.view.center.x - (w/2)
+                let yPosition = self.view.center.y - (h/2)
+                self.selectedCell.frame = CGRect(x: screen.x + xPosition, y: screen.y + yPosition, width: w , height: h)
                 self.effectView.alpha = 0.9
                 
             }), completion: nil)
@@ -117,13 +123,13 @@ extension MainViewController {
            self.performSegueWithIdentifier("openRecipeScreen", sender: self)
         }
         
-        println("didSelectItemAtIndexPath")
+        print("didSelectItemAtIndexPath")
     }
     
     override func collectionView(collectionView: UICollectionView, didDeselectItemAtIndexPath indexPath: NSIndexPath) {
         self.isDeselected = true
         self.navigationItem.setLeftBarButtonItem(nil, animated: false)
-        println("didDeselectItemAtIndexPath")
+        print("didDeselectItemAtIndexPath")
     }
     
     override func collectionView(collectionView: UICollectionView, didEndDisplayingCell cell: UICollectionViewCell, forItemAtIndexPath indexPath: NSIndexPath) {
@@ -139,14 +145,14 @@ extension MainViewController {
     func handleTap(sender: UITapGestureRecognizer) {
         self.deselectSelectedCell()
     }
-    
+
     func deselectSelectedCell(){
-        UIView.animateWithDuration(0.5 , delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: nil, animations: ({
+        UIView.animateWithDuration(0.3 , delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: [], animations: ({
             
             if let index = self.collectionView?.indexPathForCell(self.selectedCell){
                 self.collectionView(self.collectionView!, didDeselectItemAtIndexPath: index)
             }
-            self.selectedCell.recipeImageViewHeight.constant /= 1.6
+            self.selectedCell.recipeImageViewHeight.constant /= 2.5
             self.selectedCell?.frame = self.oldFrame
             self.effectView.alpha = 0.0
             
@@ -157,6 +163,38 @@ extension MainViewController {
     
     func closeAction(button : UIBarButtonItem){
         self.deselectSelectedCell()
+    }
+    
+    func searchBarCancelButtonClicked(searchBar: UISearchBar) {
+        self.cancelSearchOptions()
+    }
+    
+    func showSearchOptions(sender : UIButton) {
+//        searchButton.hidden = true
+//        searchBar.hidden = false
+//        searchBar.becomeFirstResponder()
+    }
+    func cancelSearchOptions() {
+//        searchButton.hidden = false
+//        searchBar.hidden = true
+    }
+    
+    func initNavigationButtons(){
+        
+//        searchBar.delegate = self
+//        searchBar.placeholder = "Search"
+//        searchBar.hidden = true
+//        searchBar.showsCancelButton = true
+        let rightView = UIView(frame:  CGRectMake(0, 0, 80, 30))
+        rightView.backgroundColor = UIColor.clearColor()
+        
+        searchButton.setImage(UIImage(named: "ic_search"), forState: UIControlState.Normal)
+        searchButton.tag=101
+        searchButton.addTarget(self, action: "showSearchOptions:", forControlEvents: UIControlEvents.TouchUpInside)
+        rightView.addSubview(searchButton)
+        
+        let leftNavBarButton = UIBarButtonItem(customView: rightView)
+        self.navigationItem.rightBarButtonItem = leftNavBarButton
     }
 }
 

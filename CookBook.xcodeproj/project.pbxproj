@@ -7,8 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9221B6831BA824BE0033F7B2 /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9221B6821BA824BE0033F7B2 /* UserViewController.swift */; };
+		9221B6851BA829860033F7B2 /* UserRecipesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9221B6841BA829860033F7B2 /* UserRecipesViewController.swift */; };
+		9221B68A1BA8387B0033F7B2 /* RecipeGridViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9221B6891BA8387B0033F7B2 /* RecipeGridViewController.swift */; };
+		9221B68C1BA839140033F7B2 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9221B68B1BA839140033F7B2 /* MainTabBarController.swift */; };
+		9275AAE51BA8763F00601788 /* UIColorHex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9275AAE41BA8763F00601788 /* UIColorHex.swift */; };
 		928A42581B9467B20038726E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928A42571B9467B20038726E /* AppDelegate.swift */; };
-		928A425A1B9467B20038726E /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928A42591B9467B20038726E /* MainViewController.swift */; };
 		928A425D1B9467B20038726E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 928A425B1B9467B20038726E /* Main.storyboard */; };
 		928A425F1B9467B20038726E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 928A425E1B9467B20038726E /* Images.xcassets */; };
 		928A42621B9467B20038726E /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 928A42601B9467B20038726E /* LaunchScreen.xib */; };
@@ -35,10 +39,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9221B6821BA824BE0033F7B2 /* UserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
+		9221B6841BA829860033F7B2 /* UserRecipesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserRecipesViewController.swift; sourceTree = "<group>"; };
+		9221B6891BA8387B0033F7B2 /* RecipeGridViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipeGridViewController.swift; sourceTree = "<group>"; };
+		9221B68B1BA839140033F7B2 /* MainTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
+		9275AAE41BA8763F00601788 /* UIColorHex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorHex.swift; sourceTree = "<group>"; };
 		928A42521B9467B20038726E /* CookBook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CookBook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		928A42561B9467B20038726E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		928A42571B9467B20038726E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		928A42591B9467B20038726E /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		928A425C1B9467B20038726E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		928A425E1B9467B20038726E /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		928A42611B9467B20038726E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -74,6 +82,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9221B6811BA817F80033F7B2 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				928A425B1B9467B20038726E /* Main.storyboard */,
+				928A425E1B9467B20038726E /* Images.xcassets */,
+				928A42921B9480BD0038726E /* RecipesTemp.xcassets */,
+				928A42601B9467B20038726E /* LaunchScreen.xib */,
+			);
+			name = Resource;
+			sourceTree = "<group>";
+		};
+		9221B6881BA836F90033F7B2 /* NavigationControllers */ = {
+			isa = PBXGroup;
+			children = (
+				9221B68B1BA839140033F7B2 /* MainTabBarController.swift */,
+			);
+			name = NavigationControllers;
+			sourceTree = "<group>";
+		};
 		928A42491B9467B20038726E = {
 			isa = PBXGroup;
 			children = (
@@ -95,6 +122,7 @@
 		928A42541B9467B20038726E /* CookBook */ = {
 			isa = PBXGroup;
 			children = (
+				9221B6881BA836F90033F7B2 /* NavigationControllers */,
 				928A42771B94691C0038726E /* ViewControllers */,
 				928A428D1B94753E0038726E /* Layout */,
 				928A428A1B9474F10038726E /* Extension */,
@@ -103,10 +131,7 @@
 				928A427D1B9471CA0038726E /* Views */,
 				928A42781B94692F0038726E /* Delegates */,
 				928A42571B9467B20038726E /* AppDelegate.swift */,
-				928A425B1B9467B20038726E /* Main.storyboard */,
-				928A425E1B9467B20038726E /* Images.xcassets */,
-				928A42921B9480BD0038726E /* RecipesTemp.xcassets */,
-				928A42601B9467B20038726E /* LaunchScreen.xib */,
+				9221B6811BA817F80033F7B2 /* Resource */,
 				928A42551B9467B20038726E /* Supporting Files */,
 			);
 			path = CookBook;
@@ -140,7 +165,9 @@
 		928A42771B94691C0038726E /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				928A42591B9467B20038726E /* MainViewController.swift */,
+				9221B6891BA8387B0033F7B2 /* RecipeGridViewController.swift */,
+				9221B6841BA829860033F7B2 /* UserRecipesViewController.swift */,
+				9221B6821BA824BE0033F7B2 /* UserViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -183,6 +210,7 @@
 				928A428B1B9475150038726E /* UIImageDecompresion.swift */,
 				928A42901B94780F0038726E /* RoundedCornersCell.swift */,
 				92BA0C731B972F0300E08DD8 /* RoundedImageView.swift */,
+				9275AAE41BA8763F00601788 /* UIColorHex.swift */,
 			);
 			name = Extension;
 			sourceTree = "<group>";
@@ -239,6 +267,8 @@
 		928A424A1B9467B20038726E /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftMigration = 0700;
+				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0640;
 				ORGANIZATIONNAME = integer;
 				TargetAttributes = {
@@ -298,12 +328,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				928A42911B94780F0038726E /* RoundedCornersCell.swift in Sources */,
+				9221B6831BA824BE0033F7B2 /* UserViewController.swift in Sources */,
 				928A42821B94726F0038726E /* RecipeModel.swift in Sources */,
 				928A428F1B94754B0038726E /* MainLayout.swift in Sources */,
+				9221B6851BA829860033F7B2 /* UserRecipesViewController.swift in Sources */,
+				9221B68A1BA8387B0033F7B2 /* RecipeGridViewController.swift in Sources */,
+				9221B68C1BA839140033F7B2 /* MainTabBarController.swift in Sources */,
 				928A428C1B9475150038726E /* UIImageDecompresion.swift in Sources */,
 				928A427F1B9471E80038726E /* RecipeCell.swift in Sources */,
-				928A425A1B9467B20038726E /* MainViewController.swift in Sources */,
 				928A427A1B94694C0038726E /* RecipesListDelegate.swift in Sources */,
+				9275AAE51BA8763F00601788 /* UIColorHex.swift in Sources */,
 				928A42581B9467B20038726E /* AppDelegate.swift in Sources */,
 				92BA0C741B972F0300E08DD8 /* RoundedImageView.swift in Sources */,
 			);
@@ -433,8 +467,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = CookBook/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Debug;
 		};
@@ -443,8 +479,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = CookBook/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Release;
 		};

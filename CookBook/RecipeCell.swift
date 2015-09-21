@@ -30,7 +30,7 @@ class RecipeCell: UICollectionViewCell {
             }
         }
     }
-    override func applyLayoutAttributes(layoutAttributes: UICollectionViewLayoutAttributes!) {
+    override func applyLayoutAttributes(layoutAttributes: UICollectionViewLayoutAttributes) {
         super.applyLayoutAttributes(layoutAttributes)
         if let attributes = layoutAttributes as? PinterestLayoutAttributes {
             recipeImageViewHeight.constant = attributes.photoHeight
@@ -39,11 +39,11 @@ class RecipeCell: UICollectionViewCell {
     
     func getRandomColor() -> UIColor{
         
-        var randomRed:CGFloat = CGFloat(drand48())
+        let randomRed:CGFloat = CGFloat(drand48())
         
-        var randomGreen:CGFloat = CGFloat(drand48())
+        let randomGreen:CGFloat = CGFloat(drand48())
         
-        var randomBlue:CGFloat = CGFloat(drand48())
+        let randomBlue:CGFloat = CGFloat(drand48())
         
         return UIColor(red: randomRed, green: randomGreen, blue: randomBlue, alpha: 1.0)
     }

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>E35739AA-0424-4086-ABF3-051310FDA9CF</string>
+	<key>IDESourceControlProjectName</key>
+	<string>CookBook</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>31AB9797EC136798786FD71FF0600DBC5DC38F95</key>
+		<string>https://github.com/MaxVitruk/CookBook.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>CookBook.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>31AB9797EC136798786FD71FF0600DBC5DC38F95</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/MaxVitruk/CookBook.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>31AB9797EC136798786FD71FF0600DBC5DC38F95</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>31AB9797EC136798786FD71FF0600DBC5DC38F95</string>
+			<key>IDESourceControlWCCName</key>
+			<string>CookBook</string>
+		</dict>
+	</array>
+</dict>
+</plist>
