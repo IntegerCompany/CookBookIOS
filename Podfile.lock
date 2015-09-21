@@ -1,0 +1,12 @@
+PODS:
+  - ChameleonFramework/Default (2.0.1)
+  - ChameleonFramework/Swift (2.0.1):
+    - ChameleonFramework/Default
+
+DEPENDENCIES:
+  - ChameleonFramework/Swift
+
+SPEC CHECKSUMS:
+  ChameleonFramework: c8e3d76f1c86a607b3b8ea776880bc5148b70c1a
+
+COCOAPODS: 0.38.2

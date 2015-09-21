@@ -8,10 +8,16 @@
 
 import UIKit
 import AVFoundation
+import ChameleonFramework
+
+enum UIUserInterfaceIdiom : Int {
+    case Unspecified
+    
+    case Phone // iPhone and iPod touch style UI
+    case Pad // iPad style UI
+}
 
 class RecipeGridViewController : UICollectionViewController {
-    
-    var searchButton = UIButton(frame: CGRectMake(40,0,30, 30))
     
     var recipe = Recipe.allRecipes()
     
@@ -30,8 +36,6 @@ class RecipeGridViewController : UICollectionViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.initNavigationButtons()
         
         self.effectView = UIVisualEffectView (effect: blur)
         self.effectView.alpha = 0.9
@@ -52,6 +56,15 @@ class RecipeGridViewController : UICollectionViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransitionToSize(size, withTransitionCoordinator: coordinator)
+        
+        guard let flowLayout = self.collectionViewLayout as? MainLayout else {
+            return
+        }
+        flowLayout.invalidateLayout()
     }
 }
 
@@ -86,41 +99,15 @@ extension RecipeGridViewController {
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("RecipeCell", forIndexPath: indexPath) as! RecipeCell
         cell.photo = recipe[indexPath.item]
-        
+        cell.headerContainer.backgroundColor = UIColor(averageColorFromImage: cell.recipeImage.image)
         return cell
     }
     
     override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        
-        if isDeselected {
-            self.selectedCell = collectionView.cellForItemAtIndexPath(indexPath) as! RecipeCell
-            self.oldFrame = selectedCell.frame
-            
-            let screen = collectionView.contentOffset
-            self.effectView.frame = CGRect(x: -5.0, y: -25.0 , width: collectionView.frame.width, height: collectionView.contentSize.height + 35.0)
-            collectionView.addSubview(self.effectView)
-            let tap = UITapGestureRecognizer(target: self, action: Selector("handleTap:"))
-            self.effectView.addGestureRecognizer(tap)
-            self.effectView.alpha = 0.0
-
-            UIView.animateWithDuration(0.6 , delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: [], animations: ({
-                
-                let h = self.selectedCell.frame.height * 2.5
-                let w = self.selectedCell.frame.width * 2.5
-                self.selectedCell.recipeImageViewHeight.constant *= 2.5
-                let xPosition = self.view.center.x - (w/2)
-                let yPosition = self.view.center.y - (h/2)
-                self.selectedCell.frame = CGRect(x: screen.x + xPosition, y: screen.y + yPosition, width: w , height: h)
-                self.effectView.alpha = 0.9
-                
-            }), completion: nil)
-            
-            
-            collectionView.bringSubviewToFront(self.selectedCell)
-            self.navigationItem.setLeftBarButtonItem(self.backButton, animated: false)
-            self.isDeselected = false
+        if UIDevice.currentDevice().userInterfaceIdiom == .Pad {
+            self.scaleCell(collectionView, indexPath: indexPath)
         }else{
-           self.performSegueWithIdentifier("openRecipeScreen", sender: self)
+            self.performSegueWithIdentifier("openRecipeScreen", sender: self)
         }
         
         print("didSelectItemAtIndexPath")
@@ -145,6 +132,40 @@ extension RecipeGridViewController {
     func handleTap(sender: UITapGestureRecognizer) {
         self.deselectSelectedCell()
     }
+    
+    func scaleCell(collectionView : UICollectionView, indexPath : NSIndexPath){
+        if isDeselected {
+            self.selectedCell = collectionView.cellForItemAtIndexPath(indexPath) as! RecipeCell
+            self.oldFrame = selectedCell.frame
+            
+            let screen = collectionView.contentOffset
+            self.effectView.frame = CGRect(x: -5.0, y: -25.0 , width: collectionView.frame.width, height: collectionView.contentSize.height + 35.0)
+            collectionView.addSubview(self.effectView)
+            let tap = UITapGestureRecognizer(target: self, action: Selector("handleTap:"))
+            self.effectView.addGestureRecognizer(tap)
+            self.effectView.alpha = 0.0
+            
+            UIView.animateWithDuration(0.6 , delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: [], animations: ({
+                
+                let h = self.selectedCell.frame.height * 2.5
+                let w = self.selectedCell.frame.width * 2.5
+                self.selectedCell.recipeImageViewHeight.constant *= 2.5
+                let xPosition = self.view.center.x - (w/2)
+                let yPosition = self.view.center.y - (h/2)
+                self.selectedCell.frame = CGRect(x: screen.x + xPosition, y: screen.y + yPosition, width: w , height: h)
+                self.effectView.alpha = 0.9
+                
+            }), completion: nil)
+            
+            
+            collectionView.bringSubviewToFront(self.selectedCell)
+            self.navigationItem.setLeftBarButtonItem(self.backButton, animated: false)
+            self.isDeselected = false
+        }else{
+            self.performSegueWithIdentifier("openRecipeScreen", sender: self)
+        }
+
+    }
 
     func deselectSelectedCell(){
         UIView.animateWithDuration(0.3 , delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: [], animations: ({
@@ -163,38 +184,6 @@ extension RecipeGridViewController {
     
     func closeAction(button : UIBarButtonItem){
         self.deselectSelectedCell()
-    }
-    
-    func searchBarCancelButtonClicked(searchBar: UISearchBar) {
-        self.cancelSearchOptions()
-    }
-    
-    func showSearchOptions(sender : UIButton) {
-//        searchButton.hidden = true
-//        searchBar.hidden = false
-//        searchBar.becomeFirstResponder()
-    }
-    func cancelSearchOptions() {
-//        searchButton.hidden = false
-//        searchBar.hidden = true
-    }
-    
-    func initNavigationButtons(){
-        
-//        searchBar.delegate = self
-//        searchBar.placeholder = "Search"
-//        searchBar.hidden = true
-//        searchBar.showsCancelButton = true
-        let rightView = UIView(frame:  CGRectMake(0, 0, 80, 30))
-        rightView.backgroundColor = UIColor.clearColor()
-        
-        searchButton.setImage(UIImage(named: "ic_search"), forState: UIControlState.Normal)
-        searchButton.tag=101
-        searchButton.addTarget(self, action: "showSearchOptions:", forControlEvents: UIControlEvents.TouchUpInside)
-        rightView.addSubview(searchButton)
-        
-        let leftNavBarButton = UIBarButtonItem(customView: rightView)
-        self.navigationItem.rightBarButtonItem = leftNavBarButton
     }
 }
 

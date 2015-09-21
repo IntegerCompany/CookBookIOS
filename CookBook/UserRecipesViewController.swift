@@ -10,14 +10,21 @@ import UIKit
 
 let reuseIdentifier = "UserRecipeCell"
 
+protocol UserRecipesDelegate {
+    func didChooseRecipe(sender : Int)
+}
+
 class UserRecipeCell : UICollectionViewCell {
     
 }
 
 class UserRecipesViewController: UICollectionViewController {
+    
+    var delegate : UserRecipesDelegate?
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -66,6 +73,9 @@ class UserRecipesViewController: UICollectionViewController {
         return true
     }
     */
+    override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        self.delegate?.didChooseRecipe(indexPath.row)
+    }
 
     /*
     // Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
