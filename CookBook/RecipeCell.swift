@@ -24,9 +24,9 @@ class RecipeCell: UICollectionViewCell {
         didSet {
             if let photo = photo {
                 recipeImage.image = photo.image
-                recipeDescription.text = photo.caption
-                recipeName.text = photo.comment
-                headerContainer.backgroundColor = self.getRandomColor()
+                recipeDescription.text = photo.comment
+                recipeName.text = photo.caption
+               // headerContainer.backgroundColor = self.getMeatRandomColor() //self.getRandomColor()
             }
         }
     }
