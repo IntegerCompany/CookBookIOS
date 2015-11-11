@@ -11,10 +11,10 @@
 		9221B6851BA829860033F7B2 /* UserRecipesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9221B6841BA829860033F7B2 /* UserRecipesViewController.swift */; };
 		9221B68A1BA8387B0033F7B2 /* RecipeGridViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9221B6891BA8387B0033F7B2 /* RecipeGridViewController.swift */; };
 		9221B68C1BA839140033F7B2 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9221B68B1BA839140033F7B2 /* MainTabBarController.swift */; };
-		9228CDC41BB423560015118D /* CreateNewRecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9228CDC31BB423560015118D /* CreateNewRecipeViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		92435A991BB19CFA00D66C76 /* SingleRecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92435A981BB19CFA00D66C76 /* SingleRecipeViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		92464AEE1BB2AB78002531EE /* SingleRecipe.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 92464AED1BB2AB78002531EE /* SingleRecipe.xcassets */; settings = {ASSET_TAGS = (); }; };
-		92464AF01BB2C504002531EE /* MassageTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92464AEF1BB2C504002531EE /* MassageTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		9228CDC41BB423560015118D /* CreateNewRecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9228CDC31BB423560015118D /* CreateNewRecipeViewController.swift */; };
+		92435A991BB19CFA00D66C76 /* SingleRecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92435A981BB19CFA00D66C76 /* SingleRecipeViewController.swift */; };
+		92464AEE1BB2AB78002531EE /* SingleRecipe.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 92464AED1BB2AB78002531EE /* SingleRecipe.xcassets */; };
+		92464AF01BB2C504002531EE /* MassageTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92464AEF1BB2C504002531EE /* MassageTableViewController.swift */; };
 		9275AAE51BA8763F00601788 /* UIColorHex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9275AAE41BA8763F00601788 /* UIColorHex.swift */; };
 		928A42581B9467B20038726E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928A42571B9467B20038726E /* AppDelegate.swift */; };
 		928A425D1B9467B20038726E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 928A425B1B9467B20038726E /* Main.storyboard */; };
@@ -30,11 +30,11 @@
 		928A42911B94780F0038726E /* RoundedCornersCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928A42901B94780F0038726E /* RoundedCornersCell.swift */; };
 		928A42931B9480BD0038726E /* RecipesTemp.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 928A42921B9480BD0038726E /* RecipesTemp.xcassets */; };
 		92BA0C741B972F0300E08DD8 /* RoundedImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92BA0C731B972F0300E08DD8 /* RoundedImageView.swift */; };
-		92CECF1F1BBEC8CA00267B68 /* Cells.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92CECF1E1BBEC8CA00267B68 /* Cells.swift */; settings = {ASSET_TAGS = (); }; };
-		92CECF211BBEC95700267B68 /* SeachForUsersViewCOntroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92CECF201BBEC95700267B68 /* SeachForUsersViewCOntroller.swift */; settings = {ASSET_TAGS = (); }; };
-		92E84C151BAFFAFC0067F06A /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E84C141BAFFAFC0067F06A /* SearchViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		92E84C181BB010510067F06A /* FolowersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E84C171BB010510067F06A /* FolowersTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		92E84C1A1BB010FC0067F06A /* MenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E84C191BB010FC0067F06A /* MenuTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		92CECF1F1BBEC8CA00267B68 /* Cells.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92CECF1E1BBEC8CA00267B68 /* Cells.swift */; };
+		92CECF211BBEC95700267B68 /* SeachForUsersViewCOntroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92CECF201BBEC95700267B68 /* SeachForUsersViewCOntroller.swift */; };
+		92E84C151BAFFAFC0067F06A /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E84C141BAFFAFC0067F06A /* SearchViewController.swift */; };
+		92E84C181BB010510067F06A /* FolowersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E84C171BB010510067F06A /* FolowersTableViewController.swift */; };
+		92E84C1A1BB010FC0067F06A /* MenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E84C191BB010FC0067F06A /* MenuTableViewController.swift */; };
 		BDD39890F54D982CCAFCC9BA /* Pods_CookBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF04378D7190799AC3FAAB52 /* Pods_CookBook.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
@@ -126,20 +126,12 @@
 			name = Resource;
 			sourceTree = "<group>";
 		};
-		9221B6881BA836F90033F7B2 /* NavigationControllers */ = {
-			isa = PBXGroup;
-			children = (
-				9221B68B1BA839140033F7B2 /* MainTabBarController.swift */,
-			);
-			name = NavigationControllers;
-			sourceTree = "<group>";
-		};
-		9228CDC21BB423160015118D /* CreateNewRecipeControllers */ = {
+		9228CDC21BB423160015118D /* NewRecipeModule */ = {
 			isa = PBXGroup;
 			children = (
 				9228CDC31BB423560015118D /* CreateNewRecipeViewController.swift */,
 			);
-			name = CreateNewRecipeControllers;
+			name = NewRecipeModule;
 			sourceTree = "<group>";
 		};
 		928A42491B9467B20038726E = {
@@ -165,16 +157,14 @@
 		928A42541B9467B20038726E /* CookBook */ = {
 			isa = PBXGroup;
 			children = (
-				9228CDC21BB423160015118D /* CreateNewRecipeControllers */,
-				92E84C161BB0102C0067F06A /* UserTabViewControllers */,
-				9221B6881BA836F90033F7B2 /* NavigationControllers */,
-				928A42771B94691C0038726E /* ViewControllers */,
-				928A428D1B94753E0038726E /* Layout */,
+				92970A081BF36C5A006B1B7C /* MainScreenModule */,
+				9228CDC21BB423160015118D /* NewRecipeModule */,
+				92970A101BF36F04006B1B7C /* NewsModule */,
+				92970A0F1BF36EB9006B1B7C /* SignleRecipeModule */,
 				928A428A1B9474F10038726E /* Extension */,
 				928A42831B9472D40038726E /* Assets */,
 				928A42801B94725A0038726E /* Models */,
 				928A427D1B9471CA0038726E /* Views */,
-				928A42781B94692F0038726E /* Delegates */,
 				928A42571B9467B20038726E /* AppDelegate.swift */,
 				9221B6811BA817F80033F7B2 /* Resource */,
 				928A42551B9467B20038726E /* Supporting Files */,
@@ -205,19 +195,6 @@
 				928A426C1B9467B20038726E /* Info.plist */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		928A42771B94691C0038726E /* ViewControllers */ = {
-			isa = PBXGroup;
-			children = (
-				9221B6891BA8387B0033F7B2 /* RecipeGridViewController.swift */,
-				9221B6821BA824BE0033F7B2 /* UserViewController.swift */,
-				92E84C141BAFFAFC0067F06A /* SearchViewController.swift */,
-				92435A981BB19CFA00D66C76 /* SingleRecipeViewController.swift */,
-				92464AEF1BB2C504002531EE /* MassageTableViewController.swift */,
-				92CECF201BBEC95700267B68 /* SeachForUsersViewCOntroller.swift */,
-			);
-			name = ViewControllers;
 			sourceTree = "<group>";
 		};
 		928A42781B94692F0038726E /* Delegates */ = {
@@ -264,22 +241,85 @@
 			name = Extension;
 			sourceTree = "<group>";
 		};
-		928A428D1B94753E0038726E /* Layout */ = {
+		92970A081BF36C5A006B1B7C /* MainScreenModule */ = {
 			isa = PBXGroup;
 			children = (
-				928A428E1B94754B0038726E /* MainLayout.swift */,
+				9221B68B1BA839140033F7B2 /* MainTabBarController.swift */,
+				92970A0A1BF36D26006B1B7C /* UserModule */,
+				92970A091BF36D1C006B1B7C /* SearchModule */,
+				928A42781B94692F0038726E /* Delegates */,
 			);
-			name = Layout;
+			name = MainScreenModule;
 			sourceTree = "<group>";
 		};
-		92E84C161BB0102C0067F06A /* UserTabViewControllers */ = {
+		92970A091BF36D1C006B1B7C /* SearchModule */ = {
 			isa = PBXGroup;
 			children = (
+				92970A0E1BF36E69006B1B7C /* Updater */,
+				92970A0D1BF36E5F006B1B7C /* Cache */,
+				92970A0C1BF36E2B006B1B7C /* SearchBuilder */,
+				92970A0B1BF36DF1006B1B7C /* GridLayout */,
+			);
+			name = SearchModule;
+			sourceTree = "<group>";
+		};
+		92970A0A1BF36D26006B1B7C /* UserModule */ = {
+			isa = PBXGroup;
+			children = (
+				92CECF201BBEC95700267B68 /* SeachForUsersViewCOntroller.swift */,
+				9221B6821BA824BE0033F7B2 /* UserViewController.swift */,
 				92E84C171BB010510067F06A /* FolowersTableViewController.swift */,
 				92E84C191BB010FC0067F06A /* MenuTableViewController.swift */,
 				9221B6841BA829860033F7B2 /* UserRecipesViewController.swift */,
 			);
-			name = UserTabViewControllers;
+			name = UserModule;
+			sourceTree = "<group>";
+		};
+		92970A0B1BF36DF1006B1B7C /* GridLayout */ = {
+			isa = PBXGroup;
+			children = (
+				928A428E1B94754B0038726E /* MainLayout.swift */,
+				9221B6891BA8387B0033F7B2 /* RecipeGridViewController.swift */,
+			);
+			name = GridLayout;
+			sourceTree = "<group>";
+		};
+		92970A0C1BF36E2B006B1B7C /* SearchBuilder */ = {
+			isa = PBXGroup;
+			children = (
+				92E84C141BAFFAFC0067F06A /* SearchViewController.swift */,
+			);
+			name = SearchBuilder;
+			sourceTree = "<group>";
+		};
+		92970A0D1BF36E5F006B1B7C /* Cache */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Cache;
+			sourceTree = "<group>";
+		};
+		92970A0E1BF36E69006B1B7C /* Updater */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Updater;
+			sourceTree = "<group>";
+		};
+		92970A0F1BF36EB9006B1B7C /* SignleRecipeModule */ = {
+			isa = PBXGroup;
+			children = (
+				92435A981BB19CFA00D66C76 /* SingleRecipeViewController.swift */,
+			);
+			name = SignleRecipeModule;
+			sourceTree = "<group>";
+		};
+		92970A101BF36F04006B1B7C /* NewsModule */ = {
+			isa = PBXGroup;
+			children = (
+				92464AEF1BB2C504002531EE /* MassageTableViewController.swift */,
+			);
+			name = NewsModule;
 			sourceTree = "<group>";
 		};
 		F9D17151C767DEC6544E2EF8 /* Frameworks */ = {
