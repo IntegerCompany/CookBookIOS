@@ -35,7 +35,7 @@
 		92E84C151BAFFAFC0067F06A /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E84C141BAFFAFC0067F06A /* SearchViewController.swift */; };
 		92E84C181BB010510067F06A /* FolowersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E84C171BB010510067F06A /* FolowersTableViewController.swift */; };
 		92E84C1A1BB010FC0067F06A /* MenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E84C191BB010FC0067F06A /* MenuTableViewController.swift */; };
-		BDD39890F54D982CCAFCC9BA /* Pods_CookBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF04378D7190799AC3FAAB52 /* Pods_CookBook.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		BDD39890F54D982CCAFCC9BA /* Pods_CookBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF04378D7190799AC3FAAB52 /* Pods_CookBook.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
