@@ -9,8 +9,10 @@
 import Foundation
 
 protocol CacheProtocol {
-  func cacheData()
-  func getDataFromCache()
-  func isCacheEmpty()
+  func cacheData(recipe : Recipe)
+  func getDataFromCache()->[Recipe]
+  func isCacheEmpty()->Bool
   func clearCache()
+  func analyzeCacheSize()->Int
+  func optimizeCacheSize()
 }

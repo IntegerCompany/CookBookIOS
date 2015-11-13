@@ -8,8 +8,9 @@
 
 
 import UIKit
+import RealmSwift
 
-class Recipe {
+class Recipe : Object {
     
     //Mark temp method
     class func allRecipes() -> [Recipe] {
@@ -33,6 +34,7 @@ class Recipe {
         self.caption = caption
         self.comment = comment
         self.image = image
+        super.init()
     }
     
     convenience init(dictionary: NSDictionary) {
@@ -41,6 +43,10 @@ class Recipe {
         let photo = dictionary["Photo"] as? String
         let image = UIImage(named: photo!)?.decompressedImage
         self.init(caption: caption!, comment: comment!, image: image!)
+    }
+
+    required init() {
+        fatalError("init() has not been implemented")
     }
     
     func heightForComment(font: UIFont, width: CGFloat) -> CGFloat {
