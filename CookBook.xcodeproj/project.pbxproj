@@ -307,6 +307,7 @@
 		92970A0D1BF36E5F006B1B7C /* Cache */ = {
 			isa = PBXGroup;
 			children = (
+				66B59B4D1BF38A4000AB456F /* CacheProtocol.swift */,
 				92B1514F1BF383D50047B6B8 /* Cache.swift */,
 			);
 			name = Cache;
