@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		66B59B4A1BF3887100AB456F /* UpdaterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66B59B491BF3887100AB456F /* UpdaterProtocol.swift */; };
+		66B59B4C1BF388DA00AB456F /* SearchObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66B59B4B1BF388DA00AB456F /* SearchObject.swift */; };
+		66B59B4E1BF38A4000AB456F /* CacheProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66B59B4D1BF38A4000AB456F /* CacheProtocol.swift */; };
+		66B59B501BF38B1B00AB456F /* RecipeTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66B59B4F1BF38B1B00AB456F /* RecipeTag.swift */; };
 		9221B6831BA824BE0033F7B2 /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9221B6821BA824BE0033F7B2 /* UserViewController.swift */; };
 		9221B6851BA829860033F7B2 /* UserRecipesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9221B6841BA829860033F7B2 /* UserRecipesViewController.swift */; };
 		9221B68A1BA8387B0033F7B2 /* RecipeGridViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9221B6891BA8387B0033F7B2 /* RecipeGridViewController.swift */; };
@@ -51,6 +55,10 @@
 
 /* Begin PBXFileReference section */
 		0D0D61504AEFF14409B5942D /* Pods-CookBook.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CookBook.release.xcconfig"; path = "Pods/Target Support Files/Pods-CookBook/Pods-CookBook.release.xcconfig"; sourceTree = "<group>"; };
+		66B59B491BF3887100AB456F /* UpdaterProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdaterProtocol.swift; sourceTree = "<group>"; };
+		66B59B4B1BF388DA00AB456F /* SearchObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchObject.swift; sourceTree = "<group>"; };
+		66B59B4D1BF38A4000AB456F /* CacheProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CacheProtocol.swift; sourceTree = "<group>"; };
+		66B59B4F1BF38B1B00AB456F /* RecipeTag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipeTag.swift; sourceTree = "<group>"; };
 		9221B6821BA824BE0033F7B2 /* UserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
 		9221B6841BA829860033F7B2 /* UserRecipesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserRecipesViewController.swift; sourceTree = "<group>"; };
 		9221B6891BA8387B0033F7B2 /* RecipeGridViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipeGridViewController.swift; sourceTree = "<group>"; };
@@ -261,6 +269,7 @@
 				92970A0D1BF36E5F006B1B7C /* Cache */,
 				92970A0C1BF36E2B006B1B7C /* SearchBuilder */,
 				92970A0B1BF36DF1006B1B7C /* GridLayout */,
+				66B59B4F1BF38B1B00AB456F /* RecipeTag.swift */,
 			);
 			name = SearchModule;
 			sourceTree = "<group>";
@@ -290,6 +299,7 @@
 			isa = PBXGroup;
 			children = (
 				92E84C141BAFFAFC0067F06A /* SearchViewController.swift */,
+				66B59B4B1BF388DA00AB456F /* SearchObject.swift */,
 			);
 			name = SearchBuilder;
 			sourceTree = "<group>";
@@ -305,6 +315,7 @@
 		92970A0E1BF36E69006B1B7C /* Updater */ = {
 			isa = PBXGroup;
 			children = (
+				66B59B491BF3887100AB456F /* UpdaterProtocol.swift */,
 			);
 			name = Updater;
 			sourceTree = "<group>";
@@ -510,7 +521,11 @@
 				928A427F1B9471E80038726E /* RecipeCell.swift in Sources */,
 				928A427A1B94694C0038726E /* RecipesListDelegate.swift in Sources */,
 				9275AAE51BA8763F00601788 /* UIColorHex.swift in Sources */,
+				66B59B4C1BF388DA00AB456F /* SearchObject.swift in Sources */,
 				928A42581B9467B20038726E /* AppDelegate.swift in Sources */,
+				66B59B4E1BF38A4000AB456F /* CacheProtocol.swift in Sources */,
+				66B59B4A1BF3887100AB456F /* UpdaterProtocol.swift in Sources */,
+				66B59B501BF38B1B00AB456F /* RecipeTag.swift in Sources */,
 				92BA0C741B972F0300E08DD8 /* RoundedImageView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
