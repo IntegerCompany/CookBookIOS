@@ -10,6 +10,7 @@ import Foundation
 
 protocol CacheProtocol {
   func cacheData()
-  
   func getDataFromCache()
+  func isCacheEmpty()
+  func clearCache()
 }
