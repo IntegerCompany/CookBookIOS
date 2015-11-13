@@ -13,5 +13,11 @@ import RealmSwift
 // See RealmSwift. https://realm.io/docs/swift
 
 class Cache {
-
+    let realm : Realm?
+    
+    init(){
+        do{
+            self.realm = try! Realm()
+        }catch _ {}
+    }
 }
