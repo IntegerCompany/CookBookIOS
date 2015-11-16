@@ -9,6 +9,7 @@
 import UIKit
 import AVFoundation
 import ChameleonFramework
+import RealmSwift
 
 enum UIUserInterfaceIdiom : Int {
     case Unspecified
@@ -36,6 +37,10 @@ class RecipeGridViewController : UICollectionViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //Setting updater callback
+        Updater.getUpdaterInstance().monitor = self
+        Cache.getCacheInstance().monitor = self
+        Cache.getCacheInstance().getDataFromCache()
         
         self.effectView = UIVisualEffectView (effect: blur)
         self.effectView.alpha = 0.9
@@ -51,6 +56,11 @@ class RecipeGridViewController : UICollectionViewController {
         collectionView!.backgroundColor = UIColor.clearColor()
         collectionView!.contentInset = UIEdgeInsets(top: 23, left: 5, bottom: 10, right: 5)
 
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        Updater.getUpdaterInstance().defaultUpdate()
     }
 
     override func didReceiveMemoryWarning() {
@@ -88,6 +98,16 @@ extension RecipeGridViewController : PinterestLayoutDelegate {
             let commentHeight = photo.heightForComment(font, width: width)
             let height = annotationPadding + annotationHeaderHeight + commentHeight + annotationPadding
             return height
+    }
+}
+//MARK: DataMonitor
+extension RecipeGridViewController : DataMonitor {
+    func updateGreedWithResponce(data: [Recipe]) {
+        print("Update : Data has been updated !")
+    }
+    
+    func updateCachedData(data : [AnyObject]){
+        print("Cache : Data has been updated from cache !")
     }
 }
 extension RecipeGridViewController {

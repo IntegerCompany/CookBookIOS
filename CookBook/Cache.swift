@@ -14,48 +14,48 @@ import RealmSwift
 
 class Cache {
     private static let cache = Cache()
-    var realm : Realm?
+    private var realm : Realm?
+    var monitor : DataMonitor?
     
-    init(){
+    private init(){
         do{
             self.realm = try! Realm()
         }catch _ {}
     }
     
-    internal static func getCache()-> Cache {
+    internal static func getCacheInstance()-> Cache {
         return self.cache
     }
 }
 
 extension Cache : CacheProtocol {
-    func cacheData(recipe : Recipe){
+    func cacheData(recipe : Object){
         try! self.realm!.write {
             self.realm!.add(recipe)
         }
     }
-    func getDataFromCache()-> [Recipe] {
-        var returnType = [Recipe]()
-        if let recipes = self.realm?.objects(Recipe) {
-            for i in recipes {
-                returnType.append(i)
+    
+    func getDataFromCache(){
+        let returnType = [AnyObject]()
+        if !(self.realm!.isEmpty){
+            if let recipes = self.realm?.objects(Object) {
+                //            for i in recipes {
+                //                returnType.append(i)
+                //            }
+                //        }
             }
         }
-        return returnType
+        self.monitor?.updateCachedData(returnType)
     }
-    func isCacheEmpty()->Bool{
-        let recipes = self.realm!.objects(Recipe)
-        if recipes.count == 0 {
-            return false
-        }else{
-           return true
-        }
+        
+    func isCacheEmpty() ->Bool {
+        return self.realm!.isEmpty
     }
     func analyzeCacheSize()->Int{
-        
         return 0
     }
     func optimizeCacheSize(){
-        
+        print("Cache : cache has been optimized !")
     }
     func clearCache(){
         try! self.realm!.write {

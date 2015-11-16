@@ -9,8 +9,10 @@
 
 import UIKit
 import RealmSwift
+import Parse
 
-class Recipe : Object {
+
+class Recipe : PFObject {
     
     //Mark temp method
     class func allRecipes() -> [Recipe] {
@@ -43,10 +45,6 @@ class Recipe : Object {
         let photo = dictionary["Photo"] as? String
         let image = UIImage(named: photo!)?.decompressedImage
         self.init(caption: caption!, comment: comment!, image: image!)
-    }
-
-    required init() {
-        fatalError("init() has not been implemented")
     }
     
     func heightForComment(font: UIFont, width: CGFloat) -> CGFloat {

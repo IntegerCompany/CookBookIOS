@@ -40,6 +40,8 @@
 		92E84C151BAFFAFC0067F06A /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E84C141BAFFAFC0067F06A /* SearchViewController.swift */; };
 		92E84C181BB010510067F06A /* FolowersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E84C171BB010510067F06A /* FolowersTableViewController.swift */; };
 		92E84C1A1BB010FC0067F06A /* MenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E84C191BB010FC0067F06A /* MenuTableViewController.swift */; };
+		92F239ED1BF5F02F0005C5DA /* DataMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F239EC1BF5F02F0005C5DA /* DataMonitor.swift */; };
+		92F239EF1BF62BAD0005C5DA /* Updater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F239EE1BF62BAD0005C5DA /* Updater.swift */; };
 		BDD39890F54D982CCAFCC9BA /* Pods_CookBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF04378D7190799AC3FAAB52 /* Pods_CookBook.framework */; };
 /* End PBXBuildFile section */
 
@@ -92,6 +94,8 @@
 		92E84C141BAFFAFC0067F06A /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		92E84C171BB010510067F06A /* FolowersTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FolowersTableViewController.swift; sourceTree = "<group>"; };
 		92E84C191BB010FC0067F06A /* MenuTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuTableViewController.swift; sourceTree = "<group>"; };
+		92F239EC1BF5F02F0005C5DA /* DataMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataMonitor.swift; sourceTree = "<group>"; };
+		92F239EE1BF62BAD0005C5DA /* Updater.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Updater.swift; sourceTree = "<group>"; };
 		EF04378D7190799AC3FAAB52 /* Pods_CookBook.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CookBook.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F11A9137C6CB2CFBB6A587FD /* Pods-CookBook.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CookBook.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CookBook/Pods-CookBook.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -291,6 +295,7 @@
 			children = (
 				928A428E1B94754B0038726E /* MainLayout.swift */,
 				9221B6891BA8387B0033F7B2 /* RecipeGridViewController.swift */,
+				92F239EC1BF5F02F0005C5DA /* DataMonitor.swift */,
 			);
 			name = GridLayout;
 			sourceTree = "<group>";
@@ -317,6 +322,7 @@
 			isa = PBXGroup;
 			children = (
 				66B59B491BF3887100AB456F /* UpdaterProtocol.swift */,
+				92F239EE1BF62BAD0005C5DA /* Updater.swift */,
 			);
 			name = Updater;
 			sourceTree = "<group>";
@@ -519,6 +525,7 @@
 				928A428C1B9475150038726E /* UIImageDecompresion.swift in Sources */,
 				92E84C151BAFFAFC0067F06A /* SearchViewController.swift in Sources */,
 				9228CDC41BB423560015118D /* CreateNewRecipeViewController.swift in Sources */,
+				92F239EF1BF62BAD0005C5DA /* Updater.swift in Sources */,
 				928A427F1B9471E80038726E /* RecipeCell.swift in Sources */,
 				928A427A1B94694C0038726E /* RecipesListDelegate.swift in Sources */,
 				9275AAE51BA8763F00601788 /* UIColorHex.swift in Sources */,
@@ -526,6 +533,7 @@
 				928A42581B9467B20038726E /* AppDelegate.swift in Sources */,
 				66B59B4E1BF38A4000AB456F /* CacheProtocol.swift in Sources */,
 				66B59B4A1BF3887100AB456F /* UpdaterProtocol.swift in Sources */,
+				92F239ED1BF5F02F0005C5DA /* DataMonitor.swift in Sources */,
 				66B59B501BF38B1B00AB456F /* RecipeTag.swift in Sources */,
 				92BA0C741B972F0300E08DD8 /* RoundedImageView.swift in Sources */,
 			);
