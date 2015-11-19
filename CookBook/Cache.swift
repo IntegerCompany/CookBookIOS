@@ -29,30 +29,46 @@ class Cache {
 }
 
 extension Cache : CacheProtocol {
-    func cacheData(recipe : Object){
+    func cacheData(recipes : [Recipe]){
         try! self.realm!.write {
-            self.realm!.add(recipe)
+            self.realm!.deleteAll()
+            for item in recipes {
+                let saved = SavedRecipe()
+                saved.h = item.img.h!
+                saved.w = item.img.w!
+                saved.caption = item.caption
+                saved.comment = item.comment
+                saved.url = item.img.url
+                saved.hex = item.img.hex
+                self.realm!.add(saved)
+            }
+            self.commitWriting()
         }
     }
     
     func getDataFromCache(){
-        let returnType = [AnyObject]()
+        var returnType = [Recipe]()
         if !(self.realm!.isEmpty){
-            if let recipes = self.realm?.objects(Object) {
-                //            for i in recipes {
-                //                returnType.append(i)
-                //            }
-                //        }
+            if let recipes = self.realm?.objects(SavedRecipe) {
+                for item in recipes {
+                    let newRecipe = Recipe(savedRecipe: item)
+                    returnType.append(newRecipe)
+                }
             }
         }
         self.monitor?.updateCachedData(returnType)
+    }
+    
+    func commitWriting(){
+        try! self.realm?.commitWrite()
     }
         
     func isCacheEmpty() ->Bool {
         return self.realm!.isEmpty
     }
     func analyzeCacheSize()->Int{
-        return 0
+        let recipes = realm!.objects(SavedRecipe)
+        return recipes.count
     }
     func optimizeCacheSize(){
         print("Cache : cache has been optimized !")

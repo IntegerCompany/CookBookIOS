@@ -8,8 +8,8 @@
 
 import UIKit
 import AVFoundation
-import ChameleonFramework
 import RealmSwift
+import Alamofire
 
 enum UIUserInterfaceIdiom : Int {
     case Unspecified
@@ -19,8 +19,8 @@ enum UIUserInterfaceIdiom : Int {
 }
 
 class RecipeGridViewController : UICollectionViewController {
-    
-    var recipe = Recipe.allRecipes()
+    //Mark : Hardcoded cache
+    var recipe = [Recipe]()
     
     var blur:UIBlurEffect = UIBlurEffect(style: UIBlurEffectStyle.ExtraLight)
     var effectView:UIVisualEffectView!
@@ -37,6 +37,7 @@ class RecipeGridViewController : UICollectionViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("GrindController : Has been inited !!!")
         //Setting updater callback
         Updater.getUpdaterInstance().monitor = self
         Cache.getCacheInstance().monitor = self
@@ -61,6 +62,12 @@ class RecipeGridViewController : UICollectionViewController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         Updater.getUpdaterInstance().defaultUpdate()
+        print("Cache size : \(Cache.getCacheInstance().analyzeCacheSize())")
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        Cache.getCacheInstance().cacheData(self.recipe)
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -82,15 +89,17 @@ extension RecipeGridViewController : PinterestLayoutDelegate {
     
     func collectionView(collectionView:UICollectionView, heightForPhotoAtIndexPath indexPath:NSIndexPath,
         withWidth width:CGFloat) -> CGFloat {
+            print("LAYOUT : heightForPhotoAtIndexPath")
             let photo = recipe[indexPath.item]
             let boundingRect =  CGRect(x: 0, y: 0, width: width, height: CGFloat(MAXFLOAT))
-            let rect  = AVMakeRectWithAspectRatioInsideRect(photo.image.size, boundingRect)
+            let rect  = AVMakeRectWithAspectRatioInsideRect(photo.img.rect, boundingRect)
             return rect.size.height
     }
     
     //Mark : Here we are making a cell HEIGHT calculation
     func collectionView(collectionView: UICollectionView,
         heightForAnnotationAtIndexPath indexPath: NSIndexPath, withWidth width: CGFloat) -> CGFloat {
+            print("LAYOUT : heightForAnnotationAtIndexPath")
             let annotationPadding = CGFloat(16)
             let annotationHeaderHeight = CGFloat(56)
             let photo = recipe[indexPath.item]
@@ -104,22 +113,29 @@ extension RecipeGridViewController : PinterestLayoutDelegate {
 extension RecipeGridViewController : DataMonitor {
     func updateGreedWithResponce(data: [Recipe]) {
         print("Update : Data has been updated !")
+        update(data)
     }
     
-    func updateCachedData(data : [AnyObject]){
+    func updateCachedData(data : [Recipe]){
         print("Cache : Data has been updated from cache !")
+        update(data)
+    }
+    
+    func update(data : [Recipe]){
+        self.recipe = data
+        self.collectionView?.reloadData()
     }
 }
 extension RecipeGridViewController {
     
     override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        self.collectionView!.collectionViewLayout.invalidateLayout()
         return recipe.count
     }
     
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("RecipeCell", forIndexPath: indexPath) as! RecipeCell
         cell.photo = recipe[indexPath.item]
-        cell.headerContainer.backgroundColor = UIColor(averageColorFromImage: cell.recipeImage.image)
         return cell
     }
     

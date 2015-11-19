@@ -81,6 +81,8 @@ class MainLayout : UICollectionViewLayout {
         var column = 0
         var yOffset = [CGFloat](count: numberOfColumns, repeatedValue: 0)
         
+        self.invalidatePreviousData()
+        
         for item in 0 ..< collectionView!.numberOfItemsInSection(0) {
             
             let indexPath = NSIndexPath(forItem: item, inSection: 0)
@@ -122,5 +124,21 @@ class MainLayout : UICollectionViewLayout {
             }
         }
         return layoutAttributes
+        
+        //        var attributes = [UICollectionViewLayoutAttributes]()
+        //        let sections = self.collectionView!.numberOfSections()
+        //        for(var i=0 ; i < sections ; i++) {
+        //            for (var j=0 ; j < self.collectionView!.numberOfItemsInSection(i) ; j++) {
+        //                let indexPath = NSIndexPath(forItem: j, inSection: i)
+        //                attributes.append(self.layoutAttributesForItemAtIndexPath(indexPath)!)
+        //            }
+        //        }
+        //        return attributes
+
+    }
+    
+    func invalidatePreviousData(){
+        cache.removeAll()
+        contentHeight = 0
     }
 }

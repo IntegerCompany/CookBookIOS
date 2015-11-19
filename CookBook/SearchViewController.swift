@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Parse
 
 class SearchViewController: UIViewController, UISearchBarDelegate {
 
@@ -21,7 +22,7 @@ class SearchViewController: UIViewController, UISearchBarDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        print("Search View controler has been inited !!!!")
         self.initNavigationButtons()
         
         // Do any additional setup after loading the view.

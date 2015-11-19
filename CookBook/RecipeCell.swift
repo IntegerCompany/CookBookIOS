@@ -23,10 +23,16 @@ class RecipeCell: UICollectionViewCell {
     var photo: Recipe? {
         didSet {
             if let photo = photo {
-                recipeImage.image = photo.image
+                let url = NSURL(string: photo.img.url!)
+                recipeImage.getDataFromUrl(url!) { (data, response, error)  in
+                    dispatch_async(dispatch_get_main_queue()) { () -> Void in
+                        guard let data = data where error == nil else { return }
+                        self.recipeImage.image = UIImage(data: data)
+                    }
+                }
                 recipeDescription.text = photo.comment
                 recipeName.text = photo.caption
-               // headerContainer.backgroundColor = self.getMeatRandomColor() //self.getRandomColor()
+                self.headerContainer.backgroundColor = UIColor(hex: photo.img.hex!)
             }
         }
     }
@@ -36,16 +42,4 @@ class RecipeCell: UICollectionViewCell {
             recipeImageViewHeight.constant = attributes.photoHeight
         }
     }
-    
-    func getRandomColor() -> UIColor{
-        
-        let randomRed:CGFloat = CGFloat(drand48())
-        
-        let randomGreen:CGFloat = CGFloat(drand48())
-        
-        let randomBlue:CGFloat = CGFloat(drand48())
-        
-        return UIColor(red: randomRed, green: randomGreen, blue: randomBlue, alpha: 1.0)
-    }
-    
 }

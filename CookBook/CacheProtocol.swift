@@ -10,10 +10,11 @@ import Foundation
 import RealmSwift
 
 protocol CacheProtocol {
-  func cacheData(recipe : Object)
+  func cacheData(recipes : [Recipe])
   func getDataFromCache()
   func isCacheEmpty()->Bool
   func clearCache()
   func analyzeCacheSize()->Int
   func optimizeCacheSize()
+  func commitWriting()
 }

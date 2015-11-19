@@ -27,8 +27,43 @@ class Updater {
     }
     
     func defaultUpdate(){
-        monitor?.updateGreedWithResponce([Recipe]())
+        //ParseQuery<ParseObject> query = ParseQuery.getQuery(ParseKey.RECIPE);
+//        query.include(ParseKey.Recipe.GRID_IMAGE);
+//        query.findInBackground(new FindCallback<ParseObject>() {
+//            public void done(List<ParseObject> scoreList, ParseException e) {
+//                if (e == null) {
+//                    ArrayList<ParseObject> arrayList = new ArrayList<>();
+//                    Log.d("score", "Retrieved: " + scoreList.size());
+//                    
+//                    for (ParseObject parseObject : scoreList) {
+//                        arrayList.add(parseObject);
+//                    }
+//                    adapter.add(arrayList);
+//                } else {
+//                    Log.d("score", "Error: " + e.getMessage());
+//                }
+//            }
+//            });
         
+        //var recipes = [Recipe]()
+        let query = PFQuery(className:"Recipe")
+        query.includeKey("gridImage")
+        query.findObjectsInBackgroundWithBlock {
+            (objects: [PFObject]?, error: NSError?) -> Void in
+            
+            if error == nil {
+                // The find succeeded.
+                print("Successfully retrieved \(objects!.count) scores.")
+                // Do something with the found objects
+                print(objects)
+                let recipes = Recipe.transformToRecipe(objects!)
+                self.monitor?.updateGreedWithResponce(recipes)
+                
+            } else {
+                // Log details of the failure
+                print("Error: \(error!) \(error!.userInfo)")
+            }
+        }
     }
 }
 

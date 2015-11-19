@@ -10,5 +10,5 @@ import Foundation
 
 protocol DataMonitor {
     func updateGreedWithResponce(data : [Recipe])
-    func updateCachedData(data : [AnyObject])
+    func updateCachedData(data : [Recipe])
 }
