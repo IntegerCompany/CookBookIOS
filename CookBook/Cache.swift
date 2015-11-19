@@ -40,6 +40,9 @@ extension Cache : CacheProtocol {
                 saved.comment = item.comment
                 saved.url = item.img.url
                 saved.hex = item.img.hex
+                if item.image != nil {
+                    saved.image = UIImagePNGRepresentation(item.image!)
+                }
                 self.realm!.add(saved)
             }
             self.commitWriting()

@@ -136,6 +136,22 @@ extension RecipeGridViewController {
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("RecipeCell", forIndexPath: indexPath) as! RecipeCell
         cell.photo = recipe[indexPath.item]
+        if cell.photo?.image == nil{
+            let url = NSURL(string: cell.photo!.img.url!)
+            cell.recipeImage.getDataFromUrl(url!) { (data, response, error)  in
+                dispatch_async(dispatch_get_main_queue()) { () -> Void in
+                    guard let data = data where error == nil else { return }
+                    let img = UIImage(data: data)
+                    cell.recipeImage.image = img
+                    self.recipe[indexPath.item].image = img
+                }
+            }
+        }else{
+            let img = cell.photo!.image
+            cell.recipeImage.image = img
+            self.recipe[indexPath.item].image = img
+        }
+
         return cell
     }
     

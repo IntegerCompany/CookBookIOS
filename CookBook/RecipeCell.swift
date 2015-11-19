@@ -23,13 +23,6 @@ class RecipeCell: UICollectionViewCell {
     var photo: Recipe? {
         didSet {
             if let photo = photo {
-                let url = NSURL(string: photo.img.url!)
-                recipeImage.getDataFromUrl(url!) { (data, response, error)  in
-                    dispatch_async(dispatch_get_main_queue()) { () -> Void in
-                        guard let data = data where error == nil else { return }
-                        self.recipeImage.image = UIImage(data: data)
-                    }
-                }
                 recipeDescription.text = photo.comment
                 recipeName.text = photo.caption
                 self.headerContainer.backgroundColor = UIColor(hex: photo.img.hex!)

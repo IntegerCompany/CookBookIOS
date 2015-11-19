@@ -70,23 +70,22 @@ class Recipe {
     
     var caption: String
     var comment: String
-    var image: UIImage
+    var image: UIImage?
     var img : GridImage
     
     required init(){
         self.caption = "Some 1"
         self.comment = ""
-        self.image = UIImage()
         self.img = GridImage()
     }
-    init(caption: String, comment: String, image: UIImage) {
+    init(caption: String, comment: String, image: UIImage?) {
         self.caption = caption
         self.comment = comment
         self.image = image
         self.img = GridImage()
     }
     
-    init(caption: String, comment: String, image: UIImage,img : GridImage) {
+    init(caption: String, comment: String, image: UIImage? ,img : GridImage) {
         self.caption = caption
         self.comment = comment
         self.image = image
@@ -107,13 +106,13 @@ class Recipe {
         let resolution = img!.valueForKey("resolution") as! NSArray
         let rect = CGSize(width: (resolution[0] as! NSString).integerValue, height: (resolution[1] as! NSString).integerValue)
         let gridImg = GridImage(url: img!.valueForKey("url") as! String , hex: img!.valueForKey("color") as! String, newRect: rect)
-        self.init(caption: caption, comment: comment, image: UIImage(),img : gridImg)
+        self.init(caption: caption, comment: comment, image: nil ,img : gridImg)
     }
     
     convenience init(savedRecipe : SavedRecipe){
         let rect = CGSize(width: savedRecipe.w, height: savedRecipe.h)
         let gridImg = GridImage(url: savedRecipe.url as String , hex: savedRecipe.hex as String, newRect: rect)
-        self.init(caption: savedRecipe.caption as String, comment: savedRecipe.comment as String, image: UIImage(),img : gridImg)
+        self.init(caption: savedRecipe.caption as String, comment: savedRecipe.comment as String, image: UIImage(data: savedRecipe.image)!,img : gridImg)
     }
     
     func heightForComment(font: UIFont, width: CGFloat) -> CGFloat {
