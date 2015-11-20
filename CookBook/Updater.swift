@@ -44,8 +44,6 @@ class Updater {
 //                }
 //            }
 //            });
-        
-        //var recipes = [Recipe]()
         let query = PFQuery(className:"Recipe")
         query.includeKey("gridImage")
         query.findObjectsInBackgroundWithBlock {

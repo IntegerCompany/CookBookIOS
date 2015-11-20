@@ -18,6 +18,13 @@ class RoundedCornersCell: UIView {
         }
     }
     
+    
+    required init(coder decoder: NSCoder) {
+        super.init(coder: decoder)!
+        backgroundColor = UIColor.whiteColor()
+        self.layer.borderWidth = 0.4
+        self.layer.borderColor = UIColor.lightGrayColor().CGColor
+    }
 }
 
 @IBDesignable

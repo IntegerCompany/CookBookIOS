@@ -9,6 +9,7 @@
 
 import UIKit
 import RealmSwift
+import Realm
 import Parse
 
 
@@ -59,12 +60,10 @@ class Recipe {
     }
     
     class func transformToRecipe(objects : [PFObject])-> [Recipe]{
-        print("Recipe : START transforming : \(NSDate().timeIntervalSince1970)")
         var recipes = [Recipe]()
         for obj in objects {
             recipes.append(Recipe(obj: obj))
         }
-        print("Recipe : STOP transforming : \(NSDate().timeIntervalSince1970)")
         return recipes
     }
     
@@ -101,7 +100,7 @@ class Recipe {
     }
     convenience init(obj : PFObject){
         let caption = obj.valueForKey("dishName") as! String
-        let comment = obj.valueForKey("description") as! String
+        let comment = obj.valueForKey("recipeDescription") as! String
         let img = obj.valueForKey("gridImage")
         let resolution = img!.valueForKey("resolution") as! NSArray
         let rect = CGSize(width: (resolution[0] as! NSString).integerValue, height: (resolution[1] as! NSString).integerValue)
@@ -112,12 +111,16 @@ class Recipe {
     convenience init(savedRecipe : SavedRecipe){
         let rect = CGSize(width: savedRecipe.w, height: savedRecipe.h)
         let gridImg = GridImage(url: savedRecipe.url as String , hex: savedRecipe.hex as String, newRect: rect)
-        self.init(caption: savedRecipe.caption as String, comment: savedRecipe.comment as String, image: UIImage(data: savedRecipe.image)!,img : gridImg)
+        var image : UIImage = UIImage()
+        if savedRecipe.image != nil {
+            image = UIImage(data: savedRecipe.image)!
+        }
+        self.init(caption: savedRecipe.caption as String, comment: savedRecipe.comment as String, image: image,img : gridImg)
     }
     
     func heightForComment(font: UIFont, width: CGFloat) -> CGFloat {
         let rect = NSString(string: comment).boundingRectWithSize(CGSize(width: width, height: CGFloat(MAXFLOAT)), options: .UsesLineFragmentOrigin, attributes: [NSFontAttributeName: font], context: nil)
-        return ceil(rect.height)
+        if rect.height > 62.8 { return 62.8 } else { return ceil(rect.height) }
     }
 }
 

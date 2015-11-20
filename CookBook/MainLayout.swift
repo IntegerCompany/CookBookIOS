@@ -41,7 +41,7 @@ class MainLayout : UICollectionViewLayout {
 
     var delegate: PinterestLayoutDelegate!
     var numberOfColumns = 2
-    var cellPadding: CGFloat = 6.0
+    var cellPadding: CGFloat = 4.0
     
     private var cache = [PinterestLayoutAttributes]()
     
@@ -64,14 +64,12 @@ class MainLayout : UICollectionViewLayout {
     }
     
     override func prepareLayout() {
-        print("prepareLayout")
         
         let screenSize: CGRect = UIScreen.mainScreen().bounds
         let mWidth = screenSize.width
         print("\(mWidth)")
         let w = self.getCellWidth()
         numberOfColumns = Int(mWidth/w)
-        print("numberOfColumns : \(numberOfColumns)")
         
         let columnWidth = contentWidth / CGFloat(numberOfColumns)
         var xOffset = [CGFloat]()
@@ -92,7 +90,7 @@ class MainLayout : UICollectionViewLayout {
                 withWidth:width)
             let annotationHeight = delegate.collectionView(collectionView!,
                 heightForAnnotationAtIndexPath: indexPath, withWidth: width)
-            let height = cellPadding +  photoHeight + annotationHeight + cellPadding + 20
+            let height = cellPadding +  photoHeight + annotationHeight + cellPadding + 54
             let frame = CGRect(x: xOffset[column], y: yOffset[column], width: columnWidth, height: height)
             let insetFrame = CGRectInset(frame, cellPadding, cellPadding)
             
@@ -124,17 +122,6 @@ class MainLayout : UICollectionViewLayout {
             }
         }
         return layoutAttributes
-        
-        //        var attributes = [UICollectionViewLayoutAttributes]()
-        //        let sections = self.collectionView!.numberOfSections()
-        //        for(var i=0 ; i < sections ; i++) {
-        //            for (var j=0 ; j < self.collectionView!.numberOfItemsInSection(i) ; j++) {
-        //                let indexPath = NSIndexPath(forItem: j, inSection: i)
-        //                attributes.append(self.layoutAttributesForItemAtIndexPath(indexPath)!)
-        //            }
-        //        }
-        //        return attributes
-
     }
     
     func invalidatePreviousData(){

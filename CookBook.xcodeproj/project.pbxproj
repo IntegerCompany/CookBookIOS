@@ -11,6 +11,7 @@
 		66B59B4C1BF388DA00AB456F /* SearchObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66B59B4B1BF388DA00AB456F /* SearchObject.swift */; };
 		66B59B4E1BF38A4000AB456F /* CacheProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66B59B4D1BF38A4000AB456F /* CacheProtocol.swift */; };
 		66B59B501BF38B1B00AB456F /* RecipeTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66B59B4F1BF38B1B00AB456F /* RecipeTag.swift */; };
+		920178071BFF669800C193AB /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 920178061BFF669800C193AB /* Images.xcassets */; };
 		9221B6831BA824BE0033F7B2 /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9221B6821BA824BE0033F7B2 /* UserViewController.swift */; };
 		9221B6851BA829860033F7B2 /* UserRecipesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9221B6841BA829860033F7B2 /* UserRecipesViewController.swift */; };
 		9221B68A1BA8387B0033F7B2 /* RecipeGridViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9221B6891BA8387B0033F7B2 /* RecipeGridViewController.swift */; };
@@ -22,7 +23,6 @@
 		9275AAE51BA8763F00601788 /* UIColorHex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9275AAE41BA8763F00601788 /* UIColorHex.swift */; };
 		928A42581B9467B20038726E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928A42571B9467B20038726E /* AppDelegate.swift */; };
 		928A425D1B9467B20038726E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 928A425B1B9467B20038726E /* Main.storyboard */; };
-		928A425F1B9467B20038726E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 928A425E1B9467B20038726E /* Images.xcassets */; };
 		928A42621B9467B20038726E /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 928A42601B9467B20038726E /* LaunchScreen.xib */; };
 		928A426E1B9467B20038726E /* CookBookTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928A426D1B9467B20038726E /* CookBookTests.swift */; };
 		928A427A1B94694C0038726E /* RecipesListDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928A42791B94694C0038726E /* RecipesListDelegate.swift */; };
@@ -61,6 +61,7 @@
 		66B59B4B1BF388DA00AB456F /* SearchObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchObject.swift; sourceTree = "<group>"; };
 		66B59B4D1BF38A4000AB456F /* CacheProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CacheProtocol.swift; sourceTree = "<group>"; };
 		66B59B4F1BF38B1B00AB456F /* RecipeTag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipeTag.swift; sourceTree = "<group>"; };
+		920178061BFF669800C193AB /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		9221B6821BA824BE0033F7B2 /* UserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
 		9221B6841BA829860033F7B2 /* UserRecipesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserRecipesViewController.swift; sourceTree = "<group>"; };
 		9221B6891BA8387B0033F7B2 /* RecipeGridViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipeGridViewController.swift; sourceTree = "<group>"; };
@@ -74,7 +75,6 @@
 		928A42561B9467B20038726E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		928A42571B9467B20038726E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		928A425C1B9467B20038726E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		928A425E1B9467B20038726E /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		928A42611B9467B20038726E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		928A42671B9467B20038726E /* CookBookTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CookBookTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		928A426C1B9467B20038726E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -131,8 +131,8 @@
 		9221B6811BA817F80033F7B2 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				920178061BFF669800C193AB /* Images.xcassets */,
 				928A425B1B9467B20038726E /* Main.storyboard */,
-				928A425E1B9467B20038726E /* Images.xcassets */,
 				928A42921B9480BD0038726E /* RecipesTemp.xcassets */,
 				928A42601B9467B20038726E /* LaunchScreen.xib */,
 				92464AED1BB2AB78002531EE /* SingleRecipe.xcassets */,
@@ -440,8 +440,8 @@
 				928A42931B9480BD0038726E /* RecipesTemp.xcassets in Resources */,
 				92464AEE1BB2AB78002531EE /* SingleRecipe.xcassets in Resources */,
 				928A425D1B9467B20038726E /* Main.storyboard in Resources */,
+				920178071BFF669800C193AB /* Images.xcassets in Resources */,
 				928A42621B9467B20038726E /* LaunchScreen.xib in Resources */,
-				928A425F1B9467B20038726E /* Images.xcassets in Resources */,
 				928A42871B94748F0038726E /* Photos.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

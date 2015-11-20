@@ -8,6 +8,9 @@
 
 import Foundation
 import RealmSwift
+import Realm
+import UIKit
+
 
 // The main function of this class is self explanatory. This class makeing cache using RealmDB
 // See RealmSwift. https://realm.io/docs/swift
@@ -30,22 +33,31 @@ class Cache {
 
 extension Cache : CacheProtocol {
     func cacheData(recipes : [Recipe]){
-        try! self.realm!.write {
-            self.realm!.deleteAll()
-            for item in recipes {
-                let saved = SavedRecipe()
-                saved.h = item.img.h!
-                saved.w = item.img.w!
-                saved.caption = item.caption
-                saved.comment = item.comment
-                saved.url = item.img.url
-                saved.hex = item.img.hex
-                if item.image != nil {
-                    saved.image = UIImagePNGRepresentation(item.image!)
+        let queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
+        dispatch_async(queue) {
+            autoreleasepool {
+                let realm = try! Realm()
+                realm.beginWrite()
+                realm.deleteAll()
+                for item in recipes {
+                    let saved = SavedRecipe()
+                    saved.h = item.img.h!
+                    saved.w = item.img.w!
+                    saved.caption = item.caption
+                    saved.comment = item.comment
+                    saved.url = item.img.url
+                    saved.hex = item.img.hex
+                    if item.image != nil {
+                        saved.image = UIImagePNGRepresentation(item.image!)
+                    }
+                    realm.add(saved)
+                    
+                    dispatch_async(dispatch_get_main_queue()) {
+                        print("Objects has been writed")
+                    }
                 }
-                self.realm!.add(saved)
+                try! realm.commitWrite()
             }
-            self.commitWriting()
         }
     }
     

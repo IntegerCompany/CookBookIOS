@@ -37,7 +37,6 @@ class RecipeGridViewController : UICollectionViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("GrindController : Has been inited !!!")
         //Setting updater callback
         Updater.getUpdaterInstance().monitor = self
         Cache.getCacheInstance().monitor = self
@@ -53,10 +52,7 @@ class RecipeGridViewController : UICollectionViewController {
         }
         
         view.backgroundColor = UIColor(netHex: 0xe6e6e6)
-        
         collectionView!.backgroundColor = UIColor.clearColor()
-        collectionView!.contentInset = UIEdgeInsets(top: 23, left: 5, bottom: 10, right: 5)
-
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -89,7 +85,6 @@ extension RecipeGridViewController : PinterestLayoutDelegate {
     
     func collectionView(collectionView:UICollectionView, heightForPhotoAtIndexPath indexPath:NSIndexPath,
         withWidth width:CGFloat) -> CGFloat {
-            print("LAYOUT : heightForPhotoAtIndexPath")
             let photo = recipe[indexPath.item]
             let boundingRect =  CGRect(x: 0, y: 0, width: width, height: CGFloat(MAXFLOAT))
             let rect  = AVMakeRectWithAspectRatioInsideRect(photo.img.rect, boundingRect)
@@ -99,25 +94,22 @@ extension RecipeGridViewController : PinterestLayoutDelegate {
     //Mark : Here we are making a cell HEIGHT calculation
     func collectionView(collectionView: UICollectionView,
         heightForAnnotationAtIndexPath indexPath: NSIndexPath, withWidth width: CGFloat) -> CGFloat {
-            print("LAYOUT : heightForAnnotationAtIndexPath")
             let annotationPadding = CGFloat(16)
             let annotationHeaderHeight = CGFloat(56)
             let photo = recipe[indexPath.item]
-            let font = UIFont(name: "AvenirNext-Regular", size: 10)!
+            let font = UIFont(name: "AvenirNext-Regular", size: 11.5)!
             let commentHeight = photo.heightForComment(font, width: width)
-            let height = annotationPadding + annotationHeaderHeight + commentHeight + annotationPadding
+            let height = annotationPadding + annotationHeaderHeight + commentHeight + annotationPadding + 20
             return height
     }
 }
 //MARK: DataMonitor
 extension RecipeGridViewController : DataMonitor {
     func updateGreedWithResponce(data: [Recipe]) {
-        print("Update : Data has been updated !")
         update(data)
     }
     
     func updateCachedData(data : [Recipe]){
-        print("Cache : Data has been updated from cache !")
         update(data)
     }
     
@@ -129,21 +121,28 @@ extension RecipeGridViewController : DataMonitor {
 extension RecipeGridViewController {
     
     override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        self.collectionView!.collectionViewLayout.invalidateLayout()
         return recipe.count
     }
     
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("RecipeCell", forIndexPath: indexPath) as! RecipeCell
+        
         cell.photo = recipe[indexPath.item]
         if cell.photo?.image == nil{
             let url = NSURL(string: cell.photo!.img.url!)
+            
             cell.recipeImage.getDataFromUrl(url!) { (data, response, error)  in
                 dispatch_async(dispatch_get_main_queue()) { () -> Void in
                     guard let data = data where error == nil else { return }
-                    let img = UIImage(data: data)
-                    cell.recipeImage.image = img
-                    self.recipe[indexPath.item].image = img
+                    let toImage = UIImage(data: data)
+                    self.recipe[indexPath.item].image = toImage
+                    //Fade transaction
+                    UIView.transitionWithView(cell.recipeImage ,
+                        duration: 0.5,
+                        options: UIViewAnimationOptions.TransitionCrossDissolve,
+                        animations: { cell.recipeImage.image = toImage },
+                        completion: nil)
+                    cell.recipeImage.image = toImage
                 }
             }
         }else{
@@ -161,14 +160,11 @@ extension RecipeGridViewController {
         }else{
             self.performSegueWithIdentifier("openRecipeScreen", sender: self)
         }
-        
-        print("didSelectItemAtIndexPath")
     }
     
     override func collectionView(collectionView: UICollectionView, didDeselectItemAtIndexPath indexPath: NSIndexPath) {
         self.isDeselected = true
         self.navigationItem.setLeftBarButtonItem(nil, animated: false)
-        print("didDeselectItemAtIndexPath")
     }
     
     override func collectionView(collectionView: UICollectionView, didEndDisplayingCell cell: UICollectionViewCell, forItemAtIndexPath indexPath: NSIndexPath) {
@@ -208,7 +204,6 @@ extension RecipeGridViewController {
                 self.effectView.alpha = 0.9
                 
             }), completion: nil)
-            
             
             collectionView.bringSubviewToFront(self.selectedCell)
             self.navigationItem.setLeftBarButtonItem(self.backButton, animated: false)
