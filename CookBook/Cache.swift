@@ -39,6 +39,8 @@ extension Cache : CacheProtocol {
                 let realm = try! Realm()
                 realm.beginWrite()
                 realm.deleteAll()
+                
+                var i = 0 // Iterator
                 for item in recipes {
                     let saved = SavedRecipe()
                     saved.h = item.img.h!
@@ -51,7 +53,7 @@ extension Cache : CacheProtocol {
                         saved.image = UIImagePNGRepresentation(item.image!)
                     }
                     realm.add(saved)
-                    
+                    if i++ > 10 { break }
                     dispatch_async(dispatch_get_main_queue()) {
                         print("Objects has been writed")
                     }

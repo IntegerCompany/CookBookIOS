@@ -121,9 +121,10 @@
         <!--Recipe Grid View Controller-->
         <scene sceneID="JSb-CU-gs5">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7iW-yx-uRl" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <collectionViewController storyboardIdentifier="RecipeGridViewController" id="veU-6w-ntT" customClass="RecipeGridViewController" customModule="CookBook" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="mVG-V0-hoJ">
-                        <rect key="frame" x="0.0" y="0.0" width="590" height="531"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.95043380152095447" green="0.95043380152095447" blue="0.95043380152095447" alpha="1" colorSpace="calibratedRGB"/>
                         <collectionViewLayout key="collectionViewLayout" id="vgn-7C-1dh" customClass="MainLayout" customModule="CookBook" customModuleProvider="target"/>
@@ -139,10 +140,10 @@
                                             <rect key="frame" x="0.0" y="0.0" width="282" height="425"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GlS-yc-EAi">
-                                                    <rect key="frame" x="0.0" y="0.0" width="282" height="236"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="282" height="230.5"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title of best recipe" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="keq-jD-ksd">
-                                                            <rect key="frame" x="8" y="5" width="266" height="33"/>
+                                                            <rect key="frame" x="8" y="12" width="266" height="15"/>
                                                             <fontDescription key="fontDescription" name="ArialHebrew-Bold" family="Arial Hebrew" pointSize="14"/>
                                                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                             <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -150,25 +151,27 @@
                                                     </subviews>
                                                     <color key="backgroundColor" red="1" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
-                                                        <constraint firstItem="keq-jD-ksd" firstAttribute="top" secondItem="GlS-yc-EAi" secondAttribute="top" constant="5" id="60M-Ug-qau"/>
-                                                        <constraint firstAttribute="height" constant="236" id="8MP-Bs-Cic">
-                                                            <variation key="widthClass=compact" constant="236"/>
-                                                        </constraint>
+                                                        <constraint firstItem="keq-jD-ksd" firstAttribute="top" secondItem="GlS-yc-EAi" secondAttribute="top" constant="12" id="60M-Ug-qau"/>
                                                         <constraint firstAttribute="bottom" secondItem="keq-jD-ksd" secondAttribute="bottom" constant="198" id="SrH-f1-GUN">
                                                             <variation key="widthClass=compact" constant="198"/>
                                                         </constraint>
                                                         <constraint firstAttribute="trailing" secondItem="keq-jD-ksd" secondAttribute="trailing" constant="8" id="cbO-8V-5Qg"/>
                                                         <constraint firstItem="keq-jD-ksd" firstAttribute="leading" secondItem="GlS-yc-EAi" secondAttribute="leadingMargin" id="qOx-cI-sq8"/>
                                                     </constraints>
+                                                    <variation key="default">
+                                                        <mask key="constraints">
+                                                            <exclude reference="SrH-f1-GUN"/>
+                                                        </mask>
+                                                    </variation>
                                                 </view>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="b61-rJ-RaZ">
-                                                    <rect key="frame" x="0.0" y="45" width="282" height="191"/>
+                                                    <rect key="frame" x="0.0" y="39" width="282" height="191"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="191" id="9zL-rp-y1r"/>
                                                     </constraints>
                                                 </imageView>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="eco2" translatesAutoresizingMaskIntoConstraints="NO" id="r6W-ll-kHp" customClass="RoundedImageView" customModule="CookBook" customModuleProvider="target">
-                                                    <rect key="frame" x="10" y="244" width="16" height="16"/>
+                                                    <rect key="frame" x="10" y="238" width="16" height="16"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="16" id="9rB-lE-OfD">
                                                             <variation key="heightClass=regular-widthClass=compact" constant="12"/>
@@ -197,13 +200,13 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2500 Kk" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gu3-R6-WEG">
-                                                    <rect key="frame" x="30" y="247.5" width="41" height="13"/>
+                                                    <rect key="frame" x="30" y="241.5" width="41" height="13"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="11"/>
                                                     <color key="textColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="share39" translatesAutoresizingMaskIntoConstraints="NO" id="82M-Kv-p3E" customClass="RoundedImageView" customModule="CookBook" customModuleProvider="target">
-                                                    <rect key="frame" x="10" y="269" width="16" height="16"/>
+                                                    <rect key="frame" x="10" y="263" width="16" height="16"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="16" id="XfL-WO-FSy">
                                                             <variation key="heightClass=regular-widthClass=compact" constant="12"/>
@@ -219,13 +222,13 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="HOT" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HBx-DZ-nfK">
-                                                    <rect key="frame" x="30" y="272.5" width="23.5" height="12"/>
+                                                    <rect key="frame" x="30" y="266" width="23.5" height="12"/>
                                                     <fontDescription key="fontDescription" name="ArialHebrew-Bold" family="Arial Hebrew" pointSize="11"/>
                                                     <color key="textColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="round27" translatesAutoresizingMaskIntoConstraints="NO" id="t2C-wy-zPG" customClass="RoundedImageView" customModule="CookBook" customModuleProvider="target">
-                                                    <rect key="frame" x="220.5" y="244" width="16" height="16"/>
+                                                    <rect key="frame" x="220" y="238" width="16" height="16"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="16" id="beL-Na-4ZS">
                                                             <variation key="heightClass=regular-widthClass=compact" constant="12"/>
@@ -241,14 +244,14 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="15 min" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JEU-fk-tTK">
-                                                    <rect key="frame" x="239" y="247" width="33.5" height="13"/>
+                                                    <rect key="frame" x="238.5" y="241.5" width="33.5" height="13"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="11"/>
                                                     <color key="textColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7wD-yN-MsC">
-                                                    <rect key="frame" x="10" y="299" width="29.5" height="13.5"/>
-                                                    <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="12"/>
+                                                    <rect key="frame" x="10" y="299" width="29.5" height="14"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
                                                     <color key="textColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -308,13 +311,11 @@
                                                 <constraint firstAttribute="trailing" secondItem="2wF-Ew-BDg" secondAttribute="trailing" id="42q-td-Dh1"/>
                                                 <constraint firstItem="E68-St-nqc" firstAttribute="centerY" secondItem="v0r-Lz-dck" secondAttribute="centerY" constant="-2" id="6kZ-3K-Utp"/>
                                                 <constraint firstItem="gu3-R6-WEG" firstAttribute="centerY" secondItem="r6W-ll-kHp" secondAttribute="centerY" constant="2" id="7pw-NR-dfp"/>
+                                                <constraint firstItem="gu3-R6-WEG" firstAttribute="top" secondItem="GlS-yc-EAi" secondAttribute="bottom" constant="11.5" id="8Cl-kG-0tT"/>
                                                 <constraint firstItem="r6W-ll-kHp" firstAttribute="top" secondItem="b61-rJ-RaZ" secondAttribute="bottom" constant="8" id="8ub-pk-9rG"/>
                                                 <constraint firstAttribute="trailing" secondItem="7wD-yN-MsC" secondAttribute="trailing" constant="8" id="9v6-H2-fbe"/>
                                                 <constraint firstItem="2wF-Ew-BDg" firstAttribute="leading" secondItem="MRf-Rx-4cD" secondAttribute="leading" id="AIK-pA-k20"/>
                                                 <constraint firstItem="JEU-fk-tTK" firstAttribute="centerY" secondItem="t2C-wy-zPG" secondAttribute="centerY" constant="2" id="Als-kL-O3c"/>
-                                                <constraint firstItem="b61-rJ-RaZ" firstAttribute="top" secondItem="GlS-yc-EAi" secondAttribute="bottom" constant="-191" id="BZj-jd-MW5">
-                                                    <variation key="widthClass=compact" constant="-191"/>
-                                                </constraint>
                                                 <constraint firstItem="v0r-Lz-dck" firstAttribute="leading" secondItem="MRf-Rx-4cD" secondAttribute="leading" constant="10" id="EzG-0F-fWi"/>
                                                 <constraint firstItem="b61-rJ-RaZ" firstAttribute="leading" secondItem="MRf-Rx-4cD" secondAttribute="leading" id="Ikd-EA-D5I"/>
                                                 <constraint firstItem="Ave-5S-SHD" firstAttribute="centerY" secondItem="E68-St-nqc" secondAttribute="centerY" constant="2" id="Lq7-LS-yTL"/>
@@ -327,9 +328,12 @@
                                                 <constraint firstItem="r6W-ll-kHp" firstAttribute="leading" secondItem="MRf-Rx-4cD" secondAttribute="leading" constant="10" id="hEe-SO-Q11"/>
                                                 <constraint firstItem="gu3-R6-WEG" firstAttribute="leading" secondItem="r6W-ll-kHp" secondAttribute="trailing" constant="4" id="hOd-Bm-sjV"/>
                                                 <constraint firstItem="7wD-yN-MsC" firstAttribute="leading" secondItem="v0r-Lz-dck" secondAttribute="leading" id="hkl-SF-otv"/>
-                                                <constraint firstItem="2wF-Ew-BDg" firstAttribute="top" secondItem="b61-rJ-RaZ" secondAttribute="bottom" constant="52" id="hpW-1J-n6w"/>
+                                                <constraint firstItem="2wF-Ew-BDg" firstAttribute="top" secondItem="b61-rJ-RaZ" secondAttribute="bottom" constant="58" id="hpW-1J-n6w">
+                                                    <variation key="heightClass=regular-widthClass=compact" constant="52"/>
+                                                </constraint>
                                                 <constraint firstItem="82M-Kv-p3E" firstAttribute="leading" secondItem="MRf-Rx-4cD" secondAttribute="leading" constant="10" id="itX-wn-6R4"/>
                                                 <constraint firstItem="GlS-yc-EAi" firstAttribute="leading" secondItem="MRf-Rx-4cD" secondAttribute="leading" id="kgE-QS-I0C"/>
+                                                <constraint firstItem="b61-rJ-RaZ" firstAttribute="top" secondItem="keq-jD-ksd" secondAttribute="bottom" constant="12" id="n5c-SX-SGi"/>
                                                 <constraint firstItem="t2C-wy-zPG" firstAttribute="top" secondItem="r6W-ll-kHp" secondAttribute="top" id="oAN-WD-0zW"/>
                                                 <constraint firstItem="uXo-a7-6jq" firstAttribute="leading" secondItem="v0r-Lz-dck" secondAttribute="trailing" constant="6" id="stl-Xz-zzn"/>
                                                 <constraint firstAttribute="trailing" secondItem="GlS-yc-EAi" secondAttribute="trailing" id="t3s-6Q-KXe"/>
@@ -393,9 +397,8 @@
                         <segue destination="hvF-FS-JWA" kind="show" identifier="openRecipeScreen" id="Zaq-zr-Tyn"/>
                     </connections>
                 </collectionViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="7iW-yx-uRl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3939" y="-1334.5"/>
+            <point key="canvasLocation" x="3238" y="-657"/>
         </scene>
         <!--Single Recipe View Controller-->
         <scene sceneID="egt-pT-Ryc">
@@ -406,14 +409,14 @@
                         <viewControllerLayoutGuide type="bottom" id="vNM-ms-BCB"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="MWD-iA-lEQ">
-                        <rect key="frame" x="0.0" y="0.0" width="590" height="531"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AY9-oB-ShM">
-                                <rect key="frame" x="0.0" y="0.0" width="590" height="531"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AY9-oB-ShM">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bdN-Bu-hj4" userLabel="ContentVIew">
-                                        <rect key="frame" x="0.0" y="0.0" width="590" height="531"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vet-nE-5U8" customClass="RoundedCornersView" customModule="CookBook" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
@@ -758,7 +761,7 @@
                                                 </variation>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sq9-Ub-vVF" customClass="RoundedCornersView" customModule="CookBook" customModuleProvider="target">
-                                                <rect key="frame" x="8" y="12" width="574" height="230.5"/>
+                                                <rect key="frame" x="8" y="12" width="584" height="235"/>
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="01" translatesAutoresizingMaskIntoConstraints="NO" id="SI1-RR-Ebg">
                                                         <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
@@ -1161,7 +1164,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VRU-RM-q1a" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4439" y="-634.5"/>
+            <point key="canvasLocation" x="3972" y="-657"/>
         </scene>
         <!--User Recipes View Controller-->
         <scene sceneID="EBS-g6-9sC">
@@ -1243,7 +1246,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Max" translatesAutoresizingMaskIntoConstraints="NO" id="PPH-zd-e3z" customClass="RoundedImageView" customModule="CookBook" customModuleProvider="target">
-                                            <rect key="frame" x="8" y="5" width="65" height="65"/>
+                                            <rect key="frame" x="8" y="5.5" width="65" height="65"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="65" id="8KU-Zc-XdK"/>
                                                 <constraint firstAttribute="width" constant="65" id="wFm-ye-e1P"/>
@@ -1266,8 +1269,8 @@
                                             <color key="textColor" red="0.33055160984848486" green="0.33055160984848486" blue="0.33055160984848486" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vsk-hT-q8j">
-                                            <rect key="frame" x="546" y="22.5" width="46" height="30"/>
+                                        <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vsk-hT-q8j">
+                                            <rect key="frame" x="546" y="21" width="46" height="30"/>
                                             <state key="normal" title="Button"/>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cWO-bP-WoZ">
@@ -1331,7 +1334,7 @@
         <!--Search-->
         <scene sceneID="NMm-Jb-qVi">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="kj5-eP-fj0" customClass="SearchNavigationViewController" customModule="CookBook" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="kj5-eP-fj0" customClass="SearchNavigationViewController" customModule="CookBook" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Search" image="ic_search" id="KvC-kz-yx6"/>
                     <toolbarItems/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics"/>
@@ -1341,7 +1344,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="U5p-n6-8UX" kind="relationship" relationship="rootViewController" id="4V5-BR-PQc"/>
+                        <segue destination="veU-6w-ntT" kind="relationship" relationship="rootViewController" id="83z-GQ-n6a"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="T6y-Qq-y01" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1368,44 +1371,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vj5-8k-BtQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1446" y="-161.25"/>
-        </scene>
-        <!--Search View Controller-->
-        <scene sceneID="WUe-aP-91u">
-            <objects>
-                <viewController storyboardIdentifier="SearchViewController" id="U5p-n6-8UX" customClass="SearchViewController" customModule="CookBook" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="cWZ-lY-jou"/>
-                        <viewControllerLayoutGuide type="bottom" id="IFf-tO-NsH"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="L1n-I3-YZc">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YJ6-yy-gKi">
-                                <rect key="frame" x="5" y="20" width="590" height="531"/>
-                                <connections>
-                                    <segue destination="veU-6w-ntT" kind="embed" id="8fo-Zo-YY5"/>
-                                </connections>
-                            </containerView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="IFf-tO-NsH" firstAttribute="top" secondItem="YJ6-yy-gKi" secondAttribute="bottom" id="Q0D-ru-b7j">
-                                <variation key="widthClass=compact" constant="-49"/>
-                            </constraint>
-                            <constraint firstItem="YJ6-yy-gKi" firstAttribute="leading" secondItem="L1n-I3-YZc" secondAttribute="leadingMargin" constant="-15" id="lau-LC-mqo"/>
-                            <constraint firstItem="YJ6-yy-gKi" firstAttribute="top" secondItem="cWZ-lY-jou" secondAttribute="bottom" id="ooA-a0-gAf"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="YJ6-yy-gKi" secondAttribute="trailing" constant="-15" id="vNn-mt-fBj"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" id="pBo-n7-zda"/>
-                    <connections>
-                        <outlet property="container" destination="YJ6-yy-gKi" id="hXi-3y-kPb"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Hf0-ax-HxU" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3222" y="-657"/>
         </scene>
         <!--User View Controller-->
         <scene sceneID="fyI-zr-oYT">
@@ -1874,7 +1839,7 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Max Vitruk" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lJV-pj-DbO">
-                                                    <rect key="frame" x="429" y="120" width="90.5" height="15"/>
+                                                    <rect key="frame" x="429.5" y="120" width="90.5" height="15"/>
                                                     <fontDescription key="fontDescription" name="Courier" family="Courier" pointSize="15"/>
                                                     <color key="textColor" red="0.24680397727272729" green="0.24680397727272729" blue="0.24680397727272729" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>

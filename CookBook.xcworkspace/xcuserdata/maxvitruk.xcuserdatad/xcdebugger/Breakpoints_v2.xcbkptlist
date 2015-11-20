@@ -61,8 +61,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "65"
             endingLineNumber = "65"
-            landmarkName = "getDataFromCache()"
-            landmarkType = "5">
+            landmarkName = "Cache"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -102,11 +102,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CookBook/RecipeGridViewController.swift"
-            timestampString = "469725744.22308"
+            timestampString = "469738183.414108"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "90"
-            endingLineNumber = "90"
+            startingLineNumber = "91"
+            endingLineNumber = "91"
             landmarkName = "collectionView(_:heightForPhotoAtIndexPath:withWidth:)"
             landmarkType = "5">
          </BreakpointContent>

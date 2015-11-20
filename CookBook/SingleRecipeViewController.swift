@@ -12,6 +12,6 @@ class SingleRecipeViewController : UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.navigationController?.navigationBarHidden = false
     }
 }

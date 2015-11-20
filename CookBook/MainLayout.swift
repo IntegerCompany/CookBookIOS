@@ -59,7 +59,7 @@ class MainLayout : UICollectionViewLayout {
         if UIDevice.currentDevice().userInterfaceIdiom == .Pad {
             return 255
         }else{
-            return 155
+            return 160
         }
     }
     
@@ -90,7 +90,7 @@ class MainLayout : UICollectionViewLayout {
                 withWidth:width)
             let annotationHeight = delegate.collectionView(collectionView!,
                 heightForAnnotationAtIndexPath: indexPath, withWidth: width)
-            let height = cellPadding +  photoHeight + annotationHeight + cellPadding + 54
+            let height = cellPadding +  photoHeight + annotationHeight + cellPadding + 55
             let frame = CGRect(x: xOffset[column], y: yOffset[column], width: columnWidth, height: height)
             let insetFrame = CGRectInset(frame, cellPadding, cellPadding)
             

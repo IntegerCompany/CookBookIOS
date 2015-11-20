@@ -37,6 +37,7 @@ class RecipeGridViewController : UICollectionViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationController?.navigationBarHidden = true
         //Setting updater callback
         Updater.getUpdaterInstance().monitor = self
         Cache.getCacheInstance().monitor = self
@@ -97,7 +98,7 @@ extension RecipeGridViewController : PinterestLayoutDelegate {
             let annotationPadding = CGFloat(16)
             let annotationHeaderHeight = CGFloat(56)
             let photo = recipe[indexPath.item]
-            let font = UIFont(name: "AvenirNext-Regular", size: 11.5)!
+            let font = UIFont(name: "AvenirNext-Regular", size: 11)!
             let commentHeight = photo.heightForComment(font, width: width)
             let height = annotationPadding + annotationHeaderHeight + commentHeight + annotationPadding + 20
             return height
