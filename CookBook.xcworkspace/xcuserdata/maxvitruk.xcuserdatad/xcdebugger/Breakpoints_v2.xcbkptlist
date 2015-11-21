@@ -102,11 +102,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CookBook/RecipeGridViewController.swift"
-            timestampString = "469738183.414108"
+            timestampString = "469788460.166622"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "91"
-            endingLineNumber = "91"
+            startingLineNumber = "98"
+            endingLineNumber = "98"
             landmarkName = "collectionView(_:heightForPhotoAtIndexPath:withWidth:)"
             landmarkType = "5">
          </BreakpointContent>

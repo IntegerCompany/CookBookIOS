@@ -37,7 +37,8 @@ class RecipeGridViewController : UICollectionViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationController?.navigationBarHidden = true
+        Updater.getUpdaterInstance().defaultUpdate()
+        print("Cache size : \(Cache.getCacheInstance().analyzeCacheSize())")
         //Setting updater callback
         Updater.getUpdaterInstance().monitor = self
         Cache.getCacheInstance().monitor = self
@@ -58,8 +59,7 @@ class RecipeGridViewController : UICollectionViewController {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        Updater.getUpdaterInstance().defaultUpdate()
-        print("Cache size : \(Cache.getCacheInstance().analyzeCacheSize())")
+        navigationController?.navigationBarHidden = true
     }
     
     override func viewWillDisappear(animated: Bool) {
@@ -70,6 +70,13 @@ class RecipeGridViewController : UICollectionViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    //Mark : prepare for segue
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "openRecipeScreen" {
+            let vc = segue.destinationViewController as! SingleRecipeViewController
+            vc.bgImage = sender as? UIImage
+        }
     }
     
     override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
@@ -159,7 +166,7 @@ extension RecipeGridViewController {
         if UIDevice.currentDevice().userInterfaceIdiom == .Pad {
             self.scaleCell(collectionView, indexPath: indexPath)
         }else{
-            self.performSegueWithIdentifier("openRecipeScreen", sender: self)
+            self.performSegueWithIdentifier("openRecipeScreen", sender: self.recipe[indexPath.item].image)
         }
     }
     
@@ -210,7 +217,7 @@ extension RecipeGridViewController {
             self.navigationItem.setLeftBarButtonItem(self.backButton, animated: false)
             self.isDeselected = false
         }else{
-            self.performSegueWithIdentifier("openRecipeScreen", sender: self)
+            self.performSegueWithIdentifier("openRecipeScreen", sender: self.recipe[indexPath.item].image)
         }
 
     }
