@@ -120,7 +120,7 @@ class Recipe {
     
     func heightForComment(font: UIFont, width: CGFloat) -> CGFloat {
         let rect = NSString(string: comment).boundingRectWithSize(CGSize(width: width, height: CGFloat(MAXFLOAT)), options: .UsesLineFragmentOrigin, attributes: [NSFontAttributeName: font], context: nil)
-        if rect.height > 62.8 { return 62.8 } else { return ceil(rect.height) }
+        if rect.height > 55.8 { return 55.8 } else { return ceil(rect.height) }
     }
 }
 

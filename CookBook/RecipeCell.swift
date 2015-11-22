@@ -15,6 +15,7 @@ class RecipeCell: UICollectionViewCell {
     @IBOutlet weak var headerContainer: UIView!
     @IBOutlet weak var recipeImage: UIImageView!
 
+    @IBOutlet weak var textRect: UIView!
     @IBOutlet weak var recipeDescription: UILabel!
     @IBOutlet weak var recipeOwnerName: UILabel!
     @IBOutlet weak var recipeOwnerPhoto: UIImageView!
@@ -25,7 +26,12 @@ class RecipeCell: UICollectionViewCell {
             if let photo = photo {
                 recipeDescription.text = photo.comment
                 recipeName.text = photo.caption
-                self.headerContainer.backgroundColor = UIColor(hex: photo.img.hex!)
+                let color = UIColor(hex: photo.img.hex!)
+                recipeName.textColor = color
+                self.headerContainer.backgroundColor = color
+                
+                textRect.layer.borderWidth = 1.0
+                textRect.layer.borderColor = color.CGColor
             }
         }
     }

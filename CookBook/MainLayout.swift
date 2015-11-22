@@ -40,7 +40,14 @@ class PinterestLayoutAttributes: UICollectionViewLayoutAttributes {
 class MainLayout : UICollectionViewLayout {
 
     var delegate: PinterestLayoutDelegate!
-    var numberOfColumns = 2
+    var numberOfColumns : Int {
+        get{
+            let screenSize: CGRect = UIScreen.mainScreen().bounds
+            let mWidth = screenSize.width
+            let w = self.getCellWidth()
+            return Int(mWidth/w)
+        }
+    }
     var cellPadding: CGFloat = 4.0
     
     private var cache = [PinterestLayoutAttributes]()
@@ -65,12 +72,6 @@ class MainLayout : UICollectionViewLayout {
     
     override func prepareLayout() {
         
-        let screenSize: CGRect = UIScreen.mainScreen().bounds
-        let mWidth = screenSize.width
-        print("\(mWidth)")
-        let w = self.getCellWidth()
-        numberOfColumns = Int(mWidth/w)
-        
         let columnWidth = contentWidth / CGFloat(numberOfColumns)
         var xOffset = [CGFloat]()
         for column in 0 ..< numberOfColumns {
@@ -90,7 +91,7 @@ class MainLayout : UICollectionViewLayout {
                 withWidth:width)
             let annotationHeight = delegate.collectionView(collectionView!,
                 heightForAnnotationAtIndexPath: indexPath, withWidth: width)
-            let height = cellPadding +  photoHeight + annotationHeight + cellPadding + 55
+            let height = cellPadding +  photoHeight + annotationHeight + cellPadding + 30
             let frame = CGRect(x: xOffset[column], y: yOffset[column], width: columnWidth, height: height)
             let insetFrame = CGRectInset(frame, cellPadding, cellPadding)
             

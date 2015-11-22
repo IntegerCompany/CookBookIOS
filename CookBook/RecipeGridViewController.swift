@@ -9,7 +9,6 @@
 import UIKit
 import AVFoundation
 import RealmSwift
-import Alamofire
 
 enum UIUserInterfaceIdiom : Int {
     case Unspecified
@@ -75,7 +74,7 @@ class RecipeGridViewController : UICollectionViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "openRecipeScreen" {
             let vc = segue.destinationViewController as! SingleRecipeViewController
-            vc.bgImage = sender as? UIImage
+            vc.recipe = self.recipe[sender as! Int]
         }
     }
     
@@ -103,10 +102,10 @@ extension RecipeGridViewController : PinterestLayoutDelegate {
     func collectionView(collectionView: UICollectionView,
         heightForAnnotationAtIndexPath indexPath: NSIndexPath, withWidth width: CGFloat) -> CGFloat {
             let annotationPadding = CGFloat(16)
-            let annotationHeaderHeight = CGFloat(56)
+            let annotationHeaderHeight = CGFloat(64)
             let photo = recipe[indexPath.item]
-            let font = UIFont(name: "AvenirNext-Regular", size: 11)!
-            let commentHeight = photo.heightForComment(font, width: width)
+            let commentFont = UIFont(name: "AvenirNext-Regular", size: 12)!
+            let commentHeight = photo.heightForComment(commentFont, width: width - 22)
             let height = annotationPadding + annotationHeaderHeight + commentHeight + annotationPadding + 20
             return height
     }
@@ -166,7 +165,7 @@ extension RecipeGridViewController {
         if UIDevice.currentDevice().userInterfaceIdiom == .Pad {
             self.scaleCell(collectionView, indexPath: indexPath)
         }else{
-            self.performSegueWithIdentifier("openRecipeScreen", sender: self.recipe[indexPath.item].image)
+            self.performSegueWithIdentifier("openRecipeScreen", sender: indexPath.item)
         }
     }
     
@@ -217,7 +216,7 @@ extension RecipeGridViewController {
             self.navigationItem.setLeftBarButtonItem(self.backButton, animated: false)
             self.isDeselected = false
         }else{
-            self.performSegueWithIdentifier("openRecipeScreen", sender: self.recipe[indexPath.item].image)
+            self.performSegueWithIdentifier("openRecipeScreen", sender: indexPath.item)
         }
 
     }
