@@ -11,10 +11,8 @@ import UIKit
 
 
 protocol PinterestLayoutDelegate {
-    // 1
     func collectionView(collectionView:UICollectionView, heightForPhotoAtIndexPath indexPath:NSIndexPath,
         withWidth:CGFloat) -> CGFloat
-    // 2
     func collectionView(collectionView: UICollectionView,
         heightForAnnotationAtIndexPath indexPath: NSIndexPath, withWidth width: CGFloat) -> CGFloat
 }
@@ -42,8 +40,15 @@ class PinterestLayoutAttributes: UICollectionViewLayoutAttributes {
 class MainLayout : UICollectionViewLayout {
 
     var delegate: PinterestLayoutDelegate!
-    var numberOfColumns = 2
-    var cellPadding: CGFloat = 6.0
+    var numberOfColumns : Int {
+        get{
+            let screenSize: CGRect = UIScreen.mainScreen().bounds
+            let mWidth = screenSize.width
+            let w = self.getCellWidth()
+            return Int(mWidth/w)
+        }
+    }
+    var cellPadding: CGFloat = 4.0
     
     private var cache = [PinterestLayoutAttributes]()
     
@@ -61,19 +66,11 @@ class MainLayout : UICollectionViewLayout {
         if UIDevice.currentDevice().userInterfaceIdiom == .Pad {
             return 255
         }else{
-            return 155
+            return 160
         }
     }
     
     override func prepareLayout() {
-        print("prepareLayout")
-        
-        let screenSize: CGRect = UIScreen.mainScreen().bounds
-        let mWidth = screenSize.width
-        print("\(mWidth)")
-        let w = self.getCellWidth()
-        numberOfColumns = Int(mWidth/w)
-        print("numberOfColumns : \(numberOfColumns)")
         
         let columnWidth = contentWidth / CGFloat(numberOfColumns)
         var xOffset = [CGFloat]()
@@ -82,6 +79,8 @@ class MainLayout : UICollectionViewLayout {
         }
         var column = 0
         var yOffset = [CGFloat](count: numberOfColumns, repeatedValue: 0)
+        
+        self.invalidatePreviousData()
         
         for item in 0 ..< collectionView!.numberOfItemsInSection(0) {
             
@@ -92,7 +91,7 @@ class MainLayout : UICollectionViewLayout {
                 withWidth:width)
             let annotationHeight = delegate.collectionView(collectionView!,
                 heightForAnnotationAtIndexPath: indexPath, withWidth: width)
-            let height = cellPadding +  photoHeight + annotationHeight + cellPadding + 20
+            let height = cellPadding +  photoHeight + annotationHeight + cellPadding + 30
             let frame = CGRect(x: xOffset[column], y: yOffset[column], width: columnWidth, height: height)
             let insetFrame = CGRectInset(frame, cellPadding, cellPadding)
             
@@ -124,5 +123,10 @@ class MainLayout : UICollectionViewLayout {
             }
         }
         return layoutAttributes
+    }
+    
+    func invalidatePreviousData(){
+        cache.removeAll()
+        contentHeight = 0
     }
 }

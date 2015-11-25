@@ -15,6 +15,7 @@ class RecipeCell: UICollectionViewCell {
     @IBOutlet weak var headerContainer: UIView!
     @IBOutlet weak var recipeImage: UIImageView!
 
+    @IBOutlet weak var textRect: UIView!
     @IBOutlet weak var recipeDescription: UILabel!
     @IBOutlet weak var recipeOwnerName: UILabel!
     @IBOutlet weak var recipeOwnerPhoto: UIImageView!
@@ -23,10 +24,14 @@ class RecipeCell: UICollectionViewCell {
     var photo: Recipe? {
         didSet {
             if let photo = photo {
-                recipeImage.image = photo.image
                 recipeDescription.text = photo.comment
                 recipeName.text = photo.caption
-               // headerContainer.backgroundColor = self.getMeatRandomColor() //self.getRandomColor()
+                let color = UIColor(hex: photo.img.hex!)
+                recipeName.textColor = color
+                self.headerContainer.backgroundColor = color
+                
+                textRect.layer.borderWidth = 1.0
+                textRect.layer.borderColor = color.CGColor
             }
         }
     }
@@ -36,16 +41,4 @@ class RecipeCell: UICollectionViewCell {
             recipeImageViewHeight.constant = attributes.photoHeight
         }
     }
-    
-    func getRandomColor() -> UIColor{
-        
-        let randomRed:CGFloat = CGFloat(drand48())
-        
-        let randomGreen:CGFloat = CGFloat(drand48())
-        
-        let randomBlue:CGFloat = CGFloat(drand48())
-        
-        return UIColor(red: randomRed, green: randomGreen, blue: randomBlue, alpha: 1.0)
-    }
-    
 }

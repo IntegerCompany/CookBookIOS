@@ -2,6 +2,19 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>UIAppFonts</key>
+	<array>
+		<string>AbrilFatface-Regular</string>
+		<string>advent-pro.regular</string>
+		<string>AlfaSlabOne-Regular</string>
+		<string>Allan-Bold</string>
+		<string>Allan-Regular</string>
+		<string>advent-pro-extralight</string>
+		<string>advent-pro-light</string>
+		<string>advent-pro-medium</string>
+		<string>advent-pro-semibold</string>
+		<string>advent-pro-thin</string>
+	</array>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleExecutable</key>

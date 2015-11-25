@@ -14,3 +14,8 @@ class SearchUserCell : UITableViewCell {
     @IBOutlet weak var userImage: RoundedImageView!
 
 }
+
+class SRIStepsCell : UICollectionViewCell {
+    @IBOutlet weak var stepNumber: UILabel!
+    
+}

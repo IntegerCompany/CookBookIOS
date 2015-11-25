@@ -26,6 +26,8 @@ class MainTabBarController: UITabBarController {
         imageView.image = image
         // 5
         navigationItem.titleView = imageView
+        
+        UITabBar.appearance().tintColor = UIColor.darkGrayColor()
     }
 
     override func didReceiveMemoryWarning() {

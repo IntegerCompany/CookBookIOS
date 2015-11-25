@@ -8,6 +8,40 @@
 
 
 import UIKit
+import RealmSwift
+import Realm
+import Parse
+
+
+class GridImage {
+    var url : String?
+    var hex : String?
+    var w : Int?
+    var h : Int?
+    var rect : CGSize {
+        get{
+            return CGSize(width: w!, height: h!)
+        }
+        set(newRect){
+            self.w = Int(newRect.width)
+            self.h = Int(newRect.height)
+        }
+    }
+    
+    init(url : String, hex : String, newRect : CGSize ){
+        self.url = url
+        self.hex = hex
+        self.rect = newRect
+        
+    }
+
+    required init() {
+        self.url = ""
+        self.hex  = "#F57F17"
+        rect = CGSize(width: 200,height: 1400)
+        
+    }
+}
 
 class Recipe {
     
@@ -25,14 +59,36 @@ class Recipe {
         return photos
     }
     
+    class func transformToRecipe(objects : [PFObject])-> [Recipe]{
+        var recipes = [Recipe]()
+        for obj in objects {
+            recipes.append(Recipe(obj: obj))
+        }
+        return recipes
+    }
+    
     var caption: String
     var comment: String
-    var image: UIImage
+    var image: UIImage?
+    var img : GridImage
     
-    init(caption: String, comment: String, image: UIImage) {
+    required init(){
+        self.caption = "Some 1"
+        self.comment = ""
+        self.img = GridImage()
+    }
+    init(caption: String, comment: String, image: UIImage?) {
         self.caption = caption
         self.comment = comment
         self.image = image
+        self.img = GridImage()
+    }
+    
+    init(caption: String, comment: String, image: UIImage? ,img : GridImage) {
+        self.caption = caption
+        self.comment = comment
+        self.image = image
+        self.img = img
     }
     
     convenience init(dictionary: NSDictionary) {
@@ -42,10 +98,38 @@ class Recipe {
         let image = UIImage(named: photo!)?.decompressedImage
         self.init(caption: caption!, comment: comment!, image: image!)
     }
+    convenience init(obj : PFObject){
+        let caption = obj.valueForKey("dishName") as! String
+        let comment = obj.valueForKey("recipeDescription") as! String
+        let img = obj.valueForKey("gridImage")
+        let resolution = img!.valueForKey("resolution") as! NSArray
+        let rect = CGSize(width: (resolution[0] as! NSString).integerValue, height: (resolution[1] as! NSString).integerValue)
+        let gridImg = GridImage(url: img!.valueForKey("url") as! String , hex: img!.valueForKey("color") as! String, newRect: rect)
+        self.init(caption: caption, comment: comment, image: nil ,img : gridImg)
+    }
+    
+    convenience init(savedRecipe : SavedRecipe){
+        let rect = CGSize(width: savedRecipe.w, height: savedRecipe.h)
+        let gridImg = GridImage(url: savedRecipe.url as String , hex: savedRecipe.hex as String, newRect: rect)
+        var image : UIImage = UIImage()
+        if savedRecipe.image != nil {
+            image = UIImage(data: savedRecipe.image)!
+        }
+        self.init(caption: savedRecipe.caption as String, comment: savedRecipe.comment as String, image: image,img : gridImg)
+    }
     
     func heightForComment(font: UIFont, width: CGFloat) -> CGFloat {
         let rect = NSString(string: comment).boundingRectWithSize(CGSize(width: width, height: CGFloat(MAXFLOAT)), options: .UsesLineFragmentOrigin, attributes: [NSFontAttributeName: font], context: nil)
-        return ceil(rect.height)
+        if rect.height > 55.8 { return 55.8 } else { return ceil(rect.height) }
     }
-    
+}
+
+class SavedRecipe : Object {
+    dynamic var url : NSString!
+    dynamic var hex : NSString!
+    dynamic var w = 200
+    dynamic var h = 600
+    dynamic var caption: NSString!
+    dynamic var comment: NSString!
+    dynamic var image: NSData!
 }
