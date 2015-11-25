@@ -59,6 +59,7 @@ class RecipeGridViewController : UICollectionViewController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.navigationBarHidden = true
+        self.tabBarController?.tabBar.hidden = false
     }
     
     override func viewWillDisappear(animated: Bool) {

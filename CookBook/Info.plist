@@ -9,6 +9,11 @@
 		<string>AlfaSlabOne-Regular</string>
 		<string>Allan-Bold</string>
 		<string>Allan-Regular</string>
+		<string>advent-pro-extralight</string>
+		<string>advent-pro-light</string>
+		<string>advent-pro-medium</string>
+		<string>advent-pro-semibold</string>
+		<string>advent-pro-thin</string>
 	</array>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
