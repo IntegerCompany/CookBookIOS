@@ -58,6 +58,9 @@ class RecipeGridViewController : UICollectionViewController {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+        if !self.isDeselected {
+            self.deselectSelectedCell()
+        }
         navigationController?.navigationBarHidden = true
         self.tabBarController?.tabBar.hidden = false
     }
@@ -203,11 +206,11 @@ extension RecipeGridViewController {
             
             UIView.animateWithDuration(0.6 , delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: [], animations: ({
                 
-                let h = self.selectedCell.frame.height * 2.5
-                let w = self.selectedCell.frame.width * 2.5
-                self.selectedCell.recipeImageViewHeight.constant *= 2.5
+                let h = self.selectedCell.frame.height * 1.8
+                let w = self.selectedCell.frame.width * 1.8
+                self.selectedCell.recipeImageViewHeight.constant *= 1.8
                 let xPosition = self.view.center.x - (w/2)
-                let yPosition = self.view.center.y - (h/2)
+                let yPosition = self.view.frame.origin.y + 25
                 self.selectedCell.frame = CGRect(x: screen.x + xPosition, y: screen.y + yPosition, width: w , height: h)
                 self.effectView.alpha = 0.9
                 
@@ -228,7 +231,7 @@ extension RecipeGridViewController {
             if let index = self.collectionView?.indexPathForCell(self.selectedCell){
                 self.collectionView(self.collectionView!, didDeselectItemAtIndexPath: index)
             }
-            self.selectedCell.recipeImageViewHeight.constant /= 2.5
+            self.selectedCell.recipeImageViewHeight.constant /= 1.8
             self.selectedCell?.frame = self.oldFrame
             self.effectView.alpha = 0.0
             
