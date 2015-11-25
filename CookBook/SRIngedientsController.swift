@@ -7,27 +7,49 @@
 //
 
 import UIKit
-
+typealias SRIC = SRIngredientController
 class SRIngredientController : UIViewController {
     
     @IBOutlet weak var SRIContainer: UIView!
-    @IBOutlet weak var SRIStack: UIStackView!
-    
-    @IBOutlet weak var _SRIRow: UIView!
     
     @IBOutlet weak var _SRIContainerHeight: NSLayoutConstraint!
+    
+    @IBOutlet weak var tableView: UITableView!
     
     var recipe : Recipe?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        let v = UIView()
-        
-//        v.layer.backgroundColor = UIColor.redColor().CGColor
-//        for _ in 1...5 {
-//            self.SRIStack.addArrangedSubview(v)
-//            self._SRIContainerHeight.constant += v.frame.height
-//        }
+        self.tableView.scrollEnabled = true
     }
     
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        
+    }
+}
+
+extension SRIC : UITableViewDataSource {
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 10
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("SRIngredientCell") as! SRIngredientCell
+        cell.amount.text = "140 g."
+        cell.ingredient.text = "Iron"
+
+        self._SRIContainerHeight.constant += cell.frame.height
+        
+        return cell
+    }
+}
+
+extension SRIC : UITableViewDelegate {
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        print("Ingredient : selected : \(indexPath.item) row")
+    }
 }

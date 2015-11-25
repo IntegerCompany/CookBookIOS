@@ -19,3 +19,10 @@ class SRIStepsCell : UICollectionViewCell {
     @IBOutlet weak var stepNumber: UILabel!
     
 }
+
+class SRIngredientCell : UITableViewCell {
+    @IBOutlet weak var selectedButton: UIButton!
+    @IBOutlet weak var ingredient: UILabel!
+    @IBOutlet weak var amount: UILabel!
+    
+}
