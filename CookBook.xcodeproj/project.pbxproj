@@ -11,6 +11,7 @@
 		66B59B4C1BF388DA00AB456F /* SearchObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66B59B4B1BF388DA00AB456F /* SearchObject.swift */; };
 		66B59B4E1BF38A4000AB456F /* CacheProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66B59B4D1BF38A4000AB456F /* CacheProtocol.swift */; };
 		66B59B501BF38B1B00AB456F /* RecipeTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66B59B4F1BF38B1B00AB456F /* RecipeTag.swift */; };
+		9202C2B01C075D860005A3A0 /* NRBlendedModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9202C2AF1C075D860005A3A0 /* NRBlendedModel.swift */; };
 		9221B6831BA824BE0033F7B2 /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9221B6821BA824BE0033F7B2 /* UserViewController.swift */; };
 		9221B6851BA829860033F7B2 /* UserRecipesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9221B6841BA829860033F7B2 /* UserRecipesViewController.swift */; };
 		9221B68A1BA8387B0033F7B2 /* RecipeGridViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9221B6891BA8387B0033F7B2 /* RecipeGridViewController.swift */; };
@@ -51,6 +52,9 @@
 		92F2EA531C010EA300648014 /* Allan-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 92F2EA4E1C010E9200648014 /* Allan-Bold.ttf */; };
 		92F2EA541C010EA300648014 /* Allan-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 92F2EA4F1C010E9200648014 /* Allan-Regular.ttf */; };
 		92FA959D1C0732AC000CF053 /* ImageURLS.plist in Resources */ = {isa = PBXBuildFile; fileRef = 92FA959C1C0732AC000CF053 /* ImageURLS.plist */; };
+		92FA959F1C073CA5000CF053 /* CreateNewRecipe.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92FA959E1C073CA5000CF053 /* CreateNewRecipe.storyboard */; };
+		92FA95A11C0740DD000CF053 /* NRCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FA95A01C0740DD000CF053 /* NRCells.swift */; };
+		92FA95A31C0741E2000CF053 /* NRTableBlemnderController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FA95A21C0741E2000CF053 /* NRTableBlemnderController.swift */; };
 		BDD39890F54D982CCAFCC9BA /* Pods_CookBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF04378D7190799AC3FAAB52 /* Pods_CookBook.framework */; };
 /* End PBXBuildFile section */
 
@@ -70,6 +74,7 @@
 		66B59B4B1BF388DA00AB456F /* SearchObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchObject.swift; sourceTree = "<group>"; };
 		66B59B4D1BF38A4000AB456F /* CacheProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CacheProtocol.swift; sourceTree = "<group>"; };
 		66B59B4F1BF38B1B00AB456F /* RecipeTag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipeTag.swift; sourceTree = "<group>"; };
+		9202C2AF1C075D860005A3A0 /* NRBlendedModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NRBlendedModel.swift; sourceTree = "<group>"; };
 		9221B6821BA824BE0033F7B2 /* UserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
 		9221B6841BA829860033F7B2 /* UserRecipesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserRecipesViewController.swift; sourceTree = "<group>"; };
 		9221B6891BA8387B0033F7B2 /* RecipeGridViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipeGridViewController.swift; sourceTree = "<group>"; };
@@ -119,6 +124,9 @@
 		92F2EA4E1C010E9200648014 /* Allan-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Allan-Bold.ttf"; sourceTree = "<group>"; };
 		92F2EA4F1C010E9200648014 /* Allan-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Allan-Regular.ttf"; sourceTree = "<group>"; };
 		92FA959C1C0732AC000CF053 /* ImageURLS.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ImageURLS.plist; sourceTree = "<group>"; };
+		92FA959E1C073CA5000CF053 /* CreateNewRecipe.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CreateNewRecipe.storyboard; sourceTree = "<group>"; };
+		92FA95A01C0740DD000CF053 /* NRCells.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NRCells.swift; sourceTree = "<group>"; };
+		92FA95A21C0741E2000CF053 /* NRTableBlemnderController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NRTableBlemnderController.swift; sourceTree = "<group>"; };
 		EF04378D7190799AC3FAAB52 /* Pods_CookBook.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CookBook.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F11A9137C6CB2CFBB6A587FD /* Pods-CookBook.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CookBook.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CookBook/Pods-CookBook.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -158,6 +166,7 @@
 				92F2EA4A1C010E5900648014 /* Fonts */,
 				928A425B1B9467B20038726E /* Main.storyboard */,
 				929573F31C0354DF00CC583A /* SingleRecipe.storyboard */,
+				92FA959E1C073CA5000CF053 /* CreateNewRecipe.storyboard */,
 				928A42921B9480BD0038726E /* RecipesTemp.xcassets */,
 				928A42601B9467B20038726E /* LaunchScreen.xib */,
 				92464AED1BB2AB78002531EE /* SingleRecipe.xcassets */,
@@ -169,6 +178,8 @@
 			isa = PBXGroup;
 			children = (
 				9228CDC31BB423560015118D /* CreateNewRecipeViewController.swift */,
+				92FA95A01C0740DD000CF053 /* NRCells.swift */,
+				92FA95A21C0741E2000CF053 /* NRTableBlemnderController.swift */,
 			);
 			name = NewRecipeModule;
 			sourceTree = "<group>";
@@ -257,6 +268,7 @@
 			isa = PBXGroup;
 			children = (
 				928A42811B94726F0038726E /* RecipeModel.swift */,
+				9202C2AF1C075D860005A3A0 /* NRBlendedModel.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -491,6 +503,7 @@
 				92464AEE1BB2AB78002531EE /* SingleRecipe.xcassets in Resources */,
 				929573F41C0354DF00CC583A /* SingleRecipe.storyboard in Resources */,
 				928A425D1B9467B20038726E /* Main.storyboard in Resources */,
+				92FA959F1C073CA5000CF053 /* CreateNewRecipe.storyboard in Resources */,
 				926CC05B1C05B61D00D982AD /* Images.xcassets in Resources */,
 				92FA959D1C0732AC000CF053 /* ImageURLS.plist in Resources */,
 				928A42621B9467B20038726E /* LaunchScreen.xib in Resources */,
@@ -561,11 +574,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				92464AF01BB2C504002531EE /* MassageTableViewController.swift in Sources */,
+				92FA95A11C0740DD000CF053 /* NRCells.swift in Sources */,
 				92CECF211BBEC95700267B68 /* SeachForUsersViewCOntroller.swift in Sources */,
 				928A42911B94780F0038726E /* RoundedCornersCell.swift in Sources */,
 				92435A991BB19CFA00D66C76 /* SingleRecipeViewController.swift in Sources */,
 				92B151501BF383D50047B6B8 /* Cache.swift in Sources */,
 				9221B6831BA824BE0033F7B2 /* UserViewController.swift in Sources */,
+				9202C2B01C075D860005A3A0 /* NRBlendedModel.swift in Sources */,
 				928A42821B94726F0038726E /* RecipeModel.swift in Sources */,
 				928A428F1B94754B0038726E /* MainLayout.swift in Sources */,
 				92E84C1A1BB010FC0067F06A /* MenuTableViewController.swift in Sources */,
@@ -574,6 +589,7 @@
 				9221B68A1BA8387B0033F7B2 /* RecipeGridViewController.swift in Sources */,
 				92CECF1F1BBEC8CA00267B68 /* Cells.swift in Sources */,
 				92E84C181BB010510067F06A /* FolowersTableViewController.swift in Sources */,
+				92FA95A31C0741E2000CF053 /* NRTableBlemnderController.swift in Sources */,
 				92B34B521C031E74006EC92C /* SROverviewController.swift in Sources */,
 				9221B68C1BA839140033F7B2 /* MainTabBarController.swift in Sources */,
 				928A428C1B9475150038726E /* UIImageDecompresion.swift in Sources */,

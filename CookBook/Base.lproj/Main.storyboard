@@ -954,11 +954,20 @@
                     <connections>
                         <outlet property="launchCountainer" destination="wbF-d9-ACB" id="ETz-tw-WZ2"/>
                         <outlet property="mainView" destination="Nli-Ob-3Yt" id="yY5-h5-QDZ"/>
+                        <segue destination="raj-0j-v8w" kind="show" identifier="goNRTableBlemnderController" id="k5I-ey-Pye"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sWu-BP-tC8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3250" y="1546.5"/>
+        </scene>
+        <!--NRTableBlemnderController-->
+        <scene sceneID="lVg-v7-Ywo">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="NRTableBlemnderController" storyboardName="CreateNewRecipe" bundleIdentifier="IntegerCompany.CookBook" referencedIdentifier="NRTableBlemnderController" id="raj-0j-v8w" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hzD-q4-Emj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3757.5" y="1457"/>
         </scene>
         <!--Massage Table View Controller-->
         <scene sceneID="3md-wo-7Rn">
