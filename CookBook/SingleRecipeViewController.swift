@@ -17,7 +17,6 @@ class SingleRecipeViewController : UIViewController , UIScrollViewDelegate {
     @IBOutlet weak var recipeTitle: UILabel!
     @IBOutlet weak var controlContainer: UIView!
     @IBOutlet weak var segmentedControll: UISegmentedControl!
-    
     @IBOutlet weak var scrollView: UIScrollView!
     
     @IBOutlet weak var containerHeight: NSLayoutConstraint!
@@ -37,13 +36,14 @@ class SingleRecipeViewController : UIViewController , UIScrollViewDelegate {
         scrollView.delegate = self
         
         self.mainColor = UIColor(hex: (self.recipe?.img.hex)!)
-        self.textRextWithBorder.layer.borderWidth = 2.0
+        self.textRextWithBorder.layer.borderWidth = 1.0
         self.textRextWithBorder.layer.borderColor = UIColor.darkGrayColor().CGColor
         
         self.segmentedControll.tintColor = UIColor.darkGrayColor()
         
         self.recipeName.text = recipe?.caption
         self.recipeName.textColor = mainColor
+        
         
         if let img = recipe?.img {
             let boundingRect =  CGRect(x: 0, y: 0, width: (self.view.bounds.width - 20), height: CGFloat(MAXFLOAT))
@@ -59,6 +59,7 @@ class SingleRecipeViewController : UIViewController , UIScrollViewDelegate {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.navigationBarHidden = false
+        self.navigationController?.navigationBar.translucent = false
         self.tabBarController?.tabBar.hidden = true
         self.controlContainerOriginalOffset = self.controlContainer.frame.origin.y
     }
@@ -73,7 +74,8 @@ class SingleRecipeViewController : UIViewController , UIScrollViewDelegate {
     @IBAction func didChangeValue(sender: UISegmentedControl) {
         var newController : UIViewController?
         let oldController = childViewControllers.last!
-        
+        self.scrollToSegmentControl()
+
         switch sender.selectedSegmentIndex {
         case 0:
             //TODO REBUILD THIS CODE
@@ -112,8 +114,10 @@ class SingleRecipeViewController : UIViewController , UIScrollViewDelegate {
         })
     }
     
-    func scrollUp(sender : UIBarButtonItem){
-        self.scrollView.contentOffset.y = -64.0
+    func scrollToSegmentControl(){
+        UIView.animateWithDuration(0.8, animations: { ()->Void in
+            self.scrollView.contentOffset.y = self.controlContainerOriginalOffset!
+        })
     }
     
     func scrollViewDidScroll(scrollView: UIScrollView) {
@@ -121,7 +125,7 @@ class SingleRecipeViewController : UIViewController , UIScrollViewDelegate {
         if controlContainerOriginalOffset < scrollView.contentOffset.y {
             self.title = self.offsetLable
 
-            self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Go up" , style: UIBarButtonItemStyle.Plain , target: self, action: Selector("scrollUp:"))
+            self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Go up" , style: UIBarButtonItemStyle.Plain , target: self, action: Selector("scrollToSegmentControl"))
         }else{
             self.title = nil
             self.navigationItem.rightBarButtonItem = nil

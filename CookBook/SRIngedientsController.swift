@@ -21,12 +21,12 @@ class SRIngredientController : UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.scrollEnabled = true
+        self.SRIContainer.layer.borderWidth = 1.0
+        self.SRIContainer.layer.borderColor = UIColor.darkGrayColor().CGColor
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        
-        
     }
 }
 

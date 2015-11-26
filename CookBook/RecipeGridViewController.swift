@@ -132,6 +132,7 @@ extension RecipeGridViewController : DataMonitor {
 extension RecipeGridViewController {
     
     override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        
         return recipe.count
     }
     

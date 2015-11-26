@@ -50,6 +50,7 @@
 		92F2EA521C010EA300648014 /* AlfaSlabOne-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 92F2EA4D1C010E9200648014 /* AlfaSlabOne-Regular.ttf */; };
 		92F2EA531C010EA300648014 /* Allan-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 92F2EA4E1C010E9200648014 /* Allan-Bold.ttf */; };
 		92F2EA541C010EA300648014 /* Allan-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 92F2EA4F1C010E9200648014 /* Allan-Regular.ttf */; };
+		92FA959D1C0732AC000CF053 /* ImageURLS.plist in Resources */ = {isa = PBXBuildFile; fileRef = 92FA959C1C0732AC000CF053 /* ImageURLS.plist */; };
 		BDD39890F54D982CCAFCC9BA /* Pods_CookBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF04378D7190799AC3FAAB52 /* Pods_CookBook.framework */; };
 /* End PBXBuildFile section */
 
@@ -117,6 +118,7 @@
 		92F2EA4D1C010E9200648014 /* AlfaSlabOne-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AlfaSlabOne-Regular.ttf"; sourceTree = "<group>"; };
 		92F2EA4E1C010E9200648014 /* Allan-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Allan-Bold.ttf"; sourceTree = "<group>"; };
 		92F2EA4F1C010E9200648014 /* Allan-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Allan-Regular.ttf"; sourceTree = "<group>"; };
+		92FA959C1C0732AC000CF053 /* ImageURLS.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ImageURLS.plist; sourceTree = "<group>"; };
 		EF04378D7190799AC3FAAB52 /* Pods_CookBook.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CookBook.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F11A9137C6CB2CFBB6A587FD /* Pods-CookBook.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CookBook.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CookBook/Pods-CookBook.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -263,6 +265,7 @@
 			isa = PBXGroup;
 			children = (
 				928A42861B94748F0038726E /* Photos.plist */,
+				92FA959C1C0732AC000CF053 /* ImageURLS.plist */,
 			);
 			name = Assets;
 			sourceTree = "<group>";
@@ -489,6 +492,7 @@
 				929573F41C0354DF00CC583A /* SingleRecipe.storyboard in Resources */,
 				928A425D1B9467B20038726E /* Main.storyboard in Resources */,
 				926CC05B1C05B61D00D982AD /* Images.xcassets in Resources */,
+				92FA959D1C0732AC000CF053 /* ImageURLS.plist in Resources */,
 				928A42621B9467B20038726E /* LaunchScreen.xib in Resources */,
 				928A42871B94748F0038726E /* Photos.plist in Resources */,
 			);

@@ -38,7 +38,7 @@ class PinterestLayoutAttributes: UICollectionViewLayoutAttributes {
 }
 
 class MainLayout : UICollectionViewLayout {
-
+    
     var delegate: PinterestLayoutDelegate!
     var numberOfColumns : Int {
         get{
@@ -49,9 +49,7 @@ class MainLayout : UICollectionViewLayout {
         }
     }
     var cellPadding: CGFloat = 4.0
-    
     private var cache = [PinterestLayoutAttributes]()
-    
     private var contentHeight: CGFloat  = 0.0
     private var contentWidth: CGFloat {
         let insets = collectionView!.contentInset
@@ -97,13 +95,11 @@ class MainLayout : UICollectionViewLayout {
             
             let attributes = PinterestLayoutAttributes(forCellWithIndexPath: indexPath)
             attributes.photoHeight = photoHeight
-            
             attributes.frame = insetFrame
             cache.append(attributes)
             
             contentHeight = max(contentHeight, CGRectGetMaxY(frame))
             yOffset[column] = yOffset[column] + height
-            
             column = column >= (numberOfColumns - 1) ? 0 : ++column
         }
 
@@ -114,7 +110,6 @@ class MainLayout : UICollectionViewLayout {
     }
     
     override func layoutAttributesForElementsInRect(rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
-        
         var layoutAttributes = [UICollectionViewLayoutAttributes]()
         
         for attributes  in cache {

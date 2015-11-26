@@ -17,7 +17,7 @@ class SearchUserCell : UITableViewCell {
 
 class SRIStepsCell : UICollectionViewCell {
     @IBOutlet weak var stepNumber: UILabel!
-    
+    @IBOutlet weak var stepImage: UIImageView!
 }
 
 class SRIngredientCell : UITableViewCell {
